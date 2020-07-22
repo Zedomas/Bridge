@@ -2,6 +2,7 @@ let express = require('express')
 let bridge = express.Router()
 let Bridge = require('../models/bridge.js')
 
+// INDEX Route
 bridge.get('/', (req, res) => {
     Bridge.find({}, (err, foundBridge) => {
       if (err) {
@@ -11,7 +12,7 @@ bridge.get('/', (req, res) => {
     })
   })
 
-
+// POST Route
 bridge.post('/', async (req, res) => {
     Bridge.create(req.body, (error, createdBridge) => {
       if (error) {
@@ -21,7 +22,7 @@ bridge.post('/', async (req, res) => {
     })
   })
   
-
+// UPDATE Route
   bridge.put('/:id', (req, res) => {
     Bridge.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedBridge) => {
       if (err) {
@@ -31,6 +32,7 @@ bridge.post('/', async (req, res) => {
     })
   })
 
+  // DELETE Route
   bridge.delete('/:id', (req, res) => {
     Bridge.findByIdAndRemove(req.params.id, (err, deletedBridge) => {
       if (err) {
