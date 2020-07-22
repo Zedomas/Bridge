@@ -8,7 +8,7 @@ class App extends React.Component {
     super(props)
     this.state = {
       user: {
-        userName:''
+        username: ''
       }
     }
   }
@@ -24,7 +24,7 @@ class App extends React.Component {
     return (
 
       <div> 
-        < Login />
+        < Login handleChange={this.handleChange}/>
       </div>
 
 
