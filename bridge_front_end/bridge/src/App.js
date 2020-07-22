@@ -2,6 +2,8 @@ import React from 'react';
 import Login from './components/Login.jsx'
 import './App.css';
 
+let baseURL = 'http://localhost:3003'
+
 class App extends React.Component {
 
   constructor(props) {
@@ -13,18 +15,18 @@ class App extends React.Component {
     }
   }
 
-  handleChange = (event) => {
-    this.setState({
-        [this.target.id]: event.target.value,
-    });
-}
+ 
 
 
   render () {
     return (
 
       <div> 
-        < Login handleChange={this.handleChange}/>
+        < Login
+        baseURL={baseURL}
+        addUser={ this.addUser } 
+        handleChange={this.handleChange}
+        />
       </div>
 
 
