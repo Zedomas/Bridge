@@ -11,6 +11,13 @@ class App extends React.Component {
     }
   }
 
+  handleChange = (event) => {
+    this.setState({
+        [this.target.id]: event.target.value,
+    });
+}
+
+
   render () {
     return (
 
