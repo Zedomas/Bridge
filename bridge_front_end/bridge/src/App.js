@@ -2,22 +2,31 @@ import React from 'react';
 import Login from './components/Login.jsx'
 import './App.css';
 
+let baseURL = 'http://localhost:3003'
+
 class App extends React.Component {
 
   constructor(props) {
     super(props)
     this.state = {
       user: {
-        userName:''
+        username: ''
       }
     }
   }
+
+ 
+
 
   render () {
     return (
 
       <div> 
-        < Login />
+        < Login
+        baseURL={baseURL}
+        addUser={ this.addUser } 
+        handleChange={this.handleChange}
+        />
       </div>
 
 
