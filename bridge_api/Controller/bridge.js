@@ -20,6 +20,7 @@ bridge.post('/', async (req, res) => {
       res.status(200).send(createdBridge) 
     })
   })
+  
 
   bridge.put('/:id', (req, res) => {
     Bridge.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedBridge) => {
@@ -38,5 +39,38 @@ bridge.post('/', async (req, res) => {
       res.status(200).json(deletedBridge)
     })
   })
+
+// SEED ROUTE for DB //
+bridge.get('/seedme', (req, res) => {
+  Bridge.deleteMany(() => {
+      Bridge.create([
+          {
+            firstName: "Zach",
+            lastName: "Would",
+            bio: "Very Tall",
+            status: "New to This",
+            img: "https://ih1.redbubble.net/image.297578530.7072/flat,750x,075,f-pad,750x1000,f8f8f8.u5.jpg",
+          },
+          {
+            firstName: "Shorty",
+            lastName: "McGee",
+            bio: "the short one",
+            status: "I'm very new",
+            img: "https://ih1.redbubble.net/image.297578530.7072/flat,750x,075,f-pad,750x1000,f8f8f8.u5.jpg",
+          },
+          {
+            firstName: "Tally",
+            lastName: "Short",
+            bio: "the tall one",
+            status: "I'm very new",
+            img: "https://ih1.redbubble.net/image.297578530.7072/flat,750x,075,f-pad,750x1000,f8f8f8.u5.jpg",
+          }
+      ], (err, data) => {
+          res.redirect('/')
+      })
+  })
+})
+
+
 
 module.exports = bridge

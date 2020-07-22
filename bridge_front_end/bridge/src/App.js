@@ -1,6 +1,15 @@
 import React from 'react';
 import Login from './components/Login.jsx'
+import Feed from './components/Feed.jsx'
+import Profile from './components/Profile.jsx'
+import EditProfile from './components/Edit-profile.jsx'
+import Navbar from './components/Navbar.jsx'
+import MessageInbox from './components/MessageInbox.jsx'
+
 import './App.css';
+import { Switch , Route} from 'react-router-dom'
+
+let baseURL = 'http://localhost:3003'
 
 class App extends React.Component {
 
@@ -13,12 +22,6 @@ class App extends React.Component {
     }
   }
 
-handleChange = (event) => {
-    this.setState({
-        [this.target.id]: event.target.value,
-    });
-}
-
 addUser = (newUser) => {
   const copyUser = [...this.state.users];
   copyUser.push(newUser);
@@ -27,15 +30,19 @@ addUser = (newUser) => {
   });
 }
 
-
-
-
-
-  render () {
+ render () {
     return (
 
       <div> 
-        < Login handleChange={this.handleChange}/>
+        <Navbar />
+        <Switch>
+          <Route exact path='/' component={Login } />
+          <Route exact path='/feed' component={Feed}/>
+          <Route exact path='/profile' component={Profile}/>
+          <Route exact path='/edit-profile' component={EditProfile} />
+          <Route exact path='/messageinbox' component={MessageInbox} />
+        </Switch>
+      
       </div>
 
 
