@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import logo from '../img/logo.png'
 export default class Login extends Component {
 
     state = {
@@ -70,18 +70,20 @@ export default class Login extends Component {
                     <form onSubmit={ (evt) => this.handleLogin(evt) } >
                         <input type='text' value={this.state.LoginUsername} id='LoginUsername' placeholder='Username' onChange={this.handleChange} ></input>
 
-                        <input type='password' value={this.state.LoginPassword} id='LoginPassword' onChange={this.handleChange} ></input>
+                        <input type='password' value={this.state.LoginPassword} id='LoginPassword' placeholder='Password' onChange={this.handleChange} ></input>
                         <input type='submit' value='Log-In' ></input>
                     </form> 
 
                     </div>
-                    <img className='logo' src='./public/logo.png' />
+                    <div className='logo'>
+                        <img src={logo}/>  
+                    </div>
                     <div>
                         <form className='sign-up' onSubmit={ (evt) => this.handleSignUp(evt) } >
 
-                        <input type='text' value={this.state.NewUsername} id='NewUsername' onChange={this.handleChange} ></input>
-                        <input type='email' onChange={this.handleChange} value={this.state.email} id='email'></input>
-                        <input type='password' onChange={this.handleChange} value={this.state.NewPassword} id='NewPassword'></input>
+                        <input type='text' value={this.state.NewUsername} id='NewUsername' placeholder='Username' onChange={this.handleChange} ></input>
+                        <input type='email' placeholder='Email' onChange={this.handleChange} value={this.state.email} id='email'></input>
+                        <input type='password' placeholder='Password' onChange={this.handleChange} value={this.state.NewPassword} id='NewPassword'></input>
                         <input type='submit' value='Sign-Up'></input>
 
                         </form> 
