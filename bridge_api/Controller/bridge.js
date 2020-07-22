@@ -65,8 +65,8 @@ bridge.get('/seedme', (req, res) => {
             status: "I'm very new",
             img: "https://ih1.redbubble.net/image.297578530.7072/flat,750x,075,f-pad,750x1000,f8f8f8.u5.jpg",
           }
-      ], (err, data) => {
-          res.redirect('/')
+      ], (err) => {
+        res.send(400).json({error: err.message})
       })
   })
 })
