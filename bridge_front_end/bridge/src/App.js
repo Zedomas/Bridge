@@ -8,16 +8,23 @@ class App extends React.Component {
     super(props)
     this.state = {
       user: {
-        userName:''
+        username: ''
       }
     }
   }
+
+  handleChange = (event) => {
+    this.setState({
+        [this.target.id]: event.target.value,
+    });
+}
+
 
   render () {
     return (
 
       <div> 
-        < Login />
+        < Login handleChange={this.handleChange}/>
       </div>
 
 
