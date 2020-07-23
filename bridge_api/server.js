@@ -36,6 +36,10 @@ app.use('/bridge', bridgeController)
 let userController=require('./Controller/users_controller.js')
 app.use('/users', userController)
 
+//Movies CONTROLLER
+let moviesController=require('./Controller/movies.js')
+app.use('/movies', moviesController)
+
 
 app.listen(PORT, () => {
   console.log('listening on port:', PORT)
