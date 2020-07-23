@@ -127,16 +127,7 @@ render () {
             email = {this.state.email}
             />
         } />
-
-          <Route 
-          exact path='/movies' 
-          render={ () => 
-          <Movie
-              baseURL={baseURL}
-            />
-          }
-          />
-
+          <Route exact path='/movies' render={()=><Movie username={this.state.username}/>}/>
           <Route exact path='/music' component={Music}/>
         </Switch>
       

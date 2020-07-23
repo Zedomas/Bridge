@@ -74,6 +74,7 @@ export default class componentName extends Component {
       fetch(this.state.searchURL).then(response => {
         return response.json();
       }).then(data => {
+        
         this.setState({
           movie: data,
         });
