@@ -63,8 +63,21 @@ export default class Login extends Component {
                 NewPassword: '',
                 email: '',
             });
+            fetch(baseURL + '/bridge', {
+                method: 'POST',
+                body: JSON.stringify({
+                    username: data.username,
+                }),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            }).then(res => {
+                return res.json();
+            }).then(data => {
+                console.log(data)
         });
-    }
+    })
+}
 
 
 
@@ -83,7 +96,7 @@ export default class Login extends Component {
 
                     </div>
                     <div className='logo'>
-                        <img src={logo}/>  
+                        <img src={logo} alt=''/>  
                     </div>
                     <div>
                         <form className='sign-up' onSubmit={ (evt) => this.handleSignUp(evt) } >

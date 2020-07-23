@@ -14,6 +14,7 @@ bridge.get('/', (req, res) => {
 
 // POST Route
 bridge.post('/', async (req, res) => {
+    console.log(req.body)
     Bridge.create(req.body, (error, createdBridge) => {
       if (error) {
         res.status(400).json({ error: error.message })
@@ -41,6 +42,18 @@ bridge.post('/', async (req, res) => {
       res.status(200).json(deletedBridge)
     })
   })
+
+  //Find user route 
+  bridge.post('/username' , (re,res)=>{
+    Bridge.findById(req.params.username, (err, foundUser) => {
+      if (err) {
+        res.status(400).json({ error: err.message })
+      }
+      res.status(200).json(foundUser)
+    })
+  })
+
+
 
 // SEED ROUTE for DB //
 bridge.get('/seedme', (req, res) => {
