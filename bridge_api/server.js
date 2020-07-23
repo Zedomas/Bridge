@@ -7,7 +7,7 @@ let mongoose = require('mongoose')
 mongoose.connection.on('error', err => console.log(err.message + ' is Mongod Ready and Running Baby?'))
 mongoose.connection.on('disconnected', () => console.log('mongo disconnected'))
 
-mongoose.connect('mongodb://localhost:27017/bridge', { useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect('mongodb://localhost:27017/bridge', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
 mongoose.connection.once('open', ()=>{
     console.log('connected to Big Goose...')
 })
