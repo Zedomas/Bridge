@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import logo from '../img/logo.png'
+
+let baseURL = 'http://localhost:3003'
+
 export default class Login extends Component {
 
     state = {
@@ -18,7 +21,7 @@ export default class Login extends Component {
 
     handleLogin = (event) => {
         event.preventDefault();
-        fetch(this.props.baseUrl + '/', {
+        fetch(baseURL + '/users/login', {
             method: 'POST',
             body: JSON.stringify({
                 username: this.state.LoginUsername,
@@ -39,7 +42,7 @@ export default class Login extends Component {
 
     handleSignUp = (event) => {
         event.preventDefault();
-        fetch(this.props.baseUrl + '/', {
+        fetch(baseURL + '/users/signup', {
             method: 'POST',
             body: JSON.stringify({
                 username: this.state.NewUsername,
@@ -52,9 +55,9 @@ export default class Login extends Component {
         }).then(res => {
             return res.json();
         }).then(data => {
-            this.props.addUser(data);
+            console.log(data)
             this.setState({
-                name: '',
+                user: data.username
             });
         });
     }
