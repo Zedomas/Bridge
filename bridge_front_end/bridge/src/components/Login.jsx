@@ -33,9 +33,10 @@ export default class Login extends Component {
         }).then(res => {
             return res.json();
         }).then(data => {
-            this.props.addUser(data);
             this.setState({
-                name: '',
+                username: data.username,
+                LoginUsername: '',
+                LoginPassword: '',
             });
         });
     }
@@ -57,7 +58,10 @@ export default class Login extends Component {
         }).then(data => {
             console.log(data)
             this.setState({
-                user: data.username
+                user: data.username,
+                NewUsername: '',
+                NewPassword: '',
+                email: '',
             });
         });
     }

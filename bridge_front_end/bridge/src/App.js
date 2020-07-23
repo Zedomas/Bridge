@@ -21,13 +21,6 @@ class App extends React.Component {
     }
   }
 
-addUser = (newUser) => {
-  const copyUser = [...this.state.users];
-  copyUser.push(newUser);
-  this.setState({
-    users: copyUser,
-  });
-}
 
  render () {
     return (
