@@ -34,7 +34,7 @@ export default class Login extends Component {
 
                     </div>
                     <div className='logo'>
-                        <img src={logo} alt=''/>  
+                        <img  alt=''/>  
                     </div>
                     <div>
                         <form className='sign-up' onSubmit={ (evt) => this.props.handleSignUp(evt) } >

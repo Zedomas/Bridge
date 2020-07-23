@@ -39,17 +39,21 @@ export default class componentName extends Component {
           <input type="text" id="movieTitle"
             value={ this.state.movieTitle}
             onChange={ (evt) => this.handleChange(evt) }/>
-          <input type="submit" value="Search"/>
+          <input type="submit" value="Add Movie"/>
         </form>
         {
           this.state.movie
-            ? <div>
+            ? <div className='movie'>
 
           <h1>Title: {this.state.movie.Title}</h1>
             <h2>Year: {this.state.movie.Year}</h2>
             <img className='moviePic' src={this.state.movie.Poster} alt={this.state.movie.Title}/>
             <h3>Genre: {this.state.movie.Genre}</h3>
-            <h4>Plot: {this.state.movie.Plot}</h4> </div> 
+            <h4>Plot: {this.state.movie.Plot}</h4> 
+            <h5>posted by: {this.props.username}</h5>
+            <button>Like</button>
+            Comment: <textarea></textarea>
+            </div> 
             : ''
         }
       </>
