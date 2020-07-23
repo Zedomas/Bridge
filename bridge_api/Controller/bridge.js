@@ -14,7 +14,6 @@ bridge.get('/', (req, res) => {
 
 // POST Route
 bridge.post('/', async (req, res) => {
-    console.log(req.body)
     Bridge.create(req.body, (error, createdBridge) => {
       if (error) {
         res.status(400).json({ error: error.message })
