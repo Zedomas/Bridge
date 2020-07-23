@@ -56,7 +56,9 @@ handleLogin = (event) => {
   }).then(data => {
       // this.props.addUser(data);
       this.setState({
-           username: data.username
+           username: data.username,
+           LoginUsername: '',
+           LoginPassword: ''
       });
   });
 }

@@ -18,9 +18,10 @@ export default class componentName extends Component {
     this.setState({
       searchURL: this.state.baseURL + this.state.movieTitle,
     }, () => {
-      fetch(this.state.searchURL).then(response => {
+      fetch(this.state.searchURL ).then(response => {
         return response.json();
       }).then(data => {
+        fetch(th)
         this.setState({
           movie: data,
         });
