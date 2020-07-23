@@ -13,8 +13,7 @@ bridge.get('/', (req, res) => {
   })
 
 // POST Route
-// Sign up route
-bridge.post('/signup', async (req, res) => {
+bridge.post('/', async (req, res) => {
     Bridge.create(req.body, (error, createdBridge) => {
       if (error) {
         res.status(400).json({ error: error.message })
