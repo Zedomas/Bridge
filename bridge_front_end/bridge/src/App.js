@@ -3,6 +3,7 @@ import Login from './components/Login.jsx'
 import Movie from './components/Movie.jsx'
 import Music from './components/Music.jsx'
 import Navbar from './components/Navbar.jsx'
+
 import './App.css';
 import { Switch , Route} from 'react-router-dom'
 
@@ -13,7 +14,12 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      username: null
+      username: null,
+      LoginUsername: '',
+      LoginPassword: '',
+      NewUsername: '',
+      NewPassword: '',
+      email: '', 
 
     }
   }
@@ -27,8 +33,15 @@ addUser = (newUser) => {
   });
 }
 
+handleChange = (event) => {
+  this.setState({
+      [event.target.id]: event.target.value,
+  });
+}
+
 handleLogin = (event) => {
   event.preventDefault();
+  console.log("hello")
   fetch(baseURL + '/users/login', {
       method: 'POST',
       body: JSON.stringify({
@@ -78,13 +91,21 @@ handleSignUp = (event) => {
       }).then(res => {
           return res.json();
       }).then(data => {
-          console.log(data)
+        this.setState({
+        LoginUsername: '',
+        LoginPassword: '',
+        NewUsername: '',
+        NewPassword: '',
+        email: '', 
+      });
     });
   })
 }
 
 
+
 render () {
+
     return (
 
       <div> 
@@ -95,7 +116,14 @@ render () {
           <Login 
             handleSignUp={this.handleSignUp}
             handleLogin={this.handleLogin}
+            handleChange={this.handleChange}
             username = {this.state.username}
+            LoginUsername = {this.state.LoginUsername}
+            LoginPassword = {this.state.LoginPassword}
+            NewUsername = {this.state.NewUsername}
+            NewPassword = {this.state.NewPassword}
+            username = {this.state.username}
+            email = {this.state.email}
             />
         } />
           <Route exact path='/movies' component={Movie}/>
