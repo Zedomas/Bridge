@@ -1,17 +1,25 @@
+//----------------->
+// Dependencies
 let express = require('express')
 let app = express()
-let PORT = 3003
+let PORT = process.env.PORT || 3003
 let cors = require('cors')
 let mongoose = require('mongoose')
+//------------------>
 
+//Database
+//------------------->
+// Connection Info and error handling
 mongoose.connection.on('error', err => console.log(err.message + ' is Mongod Ready and Running Baby?'))
 mongoose.connection.on('disconnected', () => console.log('mongo disconnected'))
-
-mongoose.connect('mongodb://localhost:27017/bridge', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
+// database connection variable
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/bridge'
+// database connection
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
 mongoose.connection.once('open', ()=>{
     console.log('connected to Big Goose...')
 })
-
+//-------------------->
 
 //middleware 
 app.use(express.json())
