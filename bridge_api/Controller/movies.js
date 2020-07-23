@@ -2,26 +2,15 @@ const express = require('express')
 const movie = express.Router()
 const Movies = require('../models/movies.js')
 
-// // SHOW ROUTE for new users //
-// movie.post('/login', (req, res) => {
-
-//   console.log(req.body)
-  
-//   User.findOne({ username: req.body.username}, (err, foundUser) => {
-//     console.log(foundUser)
-//     if (!foundUser) {
-//         res.status(400).json({error: message})
-//         // need to send back a no found user
-//     } else {
-//         if (bcrypt.compareSync(req.body.password, foundUser.password)) {
-//             res.status(200).json(foundUser) 
-//         } else {
-//            //needs to say failed password match
-//         }
-//     }
-//   })
-
-// })
+// Index Route
+movie.get('/', (req, res) => {
+    Movies.find({}, (err, foundMovies) => {
+      if (err) {
+        res.status(400).json({ error: err.message })
+      }
+      res.status(200).json(foundMovies)
+    })
+  })
 
 
 // Add a movie

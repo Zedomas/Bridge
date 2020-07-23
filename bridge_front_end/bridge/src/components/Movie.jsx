@@ -12,12 +12,20 @@ export default class componentName extends Component {
       baseURL: 'http://www.omdbapi.com/?apikey=b764ea59&t=',
       movieTitle: '',
       searchURL: '',
-      movie: null
+      movie: null,
+      movies: []
     }
   }
 
-
- 
+  findMovies= () => {
+    fetch(baseURL + '/movies').then(res => {
+      return res.json();
+    }).then(data => {
+      this.setState({
+        movies: data,
+      });
+    });
+  }
 
   handleChange(evt) {
     this.setState({
@@ -42,11 +50,21 @@ export default class componentName extends Component {
       }).then(res => {
       return res.json();
       }).then(data => {
-      // this.props.addUser(data);
+        this.setState({
+          movie: null
+        });
+        this.updateMovies(data)
 
     });
   }
 
+  updateMovies = (newMovie) => {
+    const copyMovies = [...this.state.movies];
+    copyMovies.push(newMovie);
+    this.setState({
+      movies: copyMovies,
+    });
+  }
 
   handleSubmit(evt) {
     evt.preventDefault();
@@ -64,6 +82,11 @@ export default class componentName extends Component {
       });
     });
   }
+
+  componentDidMount() {
+    this.findMovies();
+  }
+
 
   render() {
     return (
@@ -86,8 +109,24 @@ export default class componentName extends Component {
             <h4>Plot: {this.state.movie.Plot}</h4> </div> 
             : ''
         }
-
         <button onClick={(event) => this.addMovie(event)}>Add movie</button>
+
+        <div>
+          {
+            this.state.movies.map(movie => {
+              return (
+                <div>
+                  <h2>{movie.title}</h2>
+                  <img src={movie.image} />
+                  <h3>Genre: {movie.genre}</h3>
+                  <h3>Year: {movie.year}</h3>
+                  <h4>Plot: {movie.plot}</h4> 
+                </div>
+              )
+            })
+          }
+        </div>
+
       </>
     )
   }
