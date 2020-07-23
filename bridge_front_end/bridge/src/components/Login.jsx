@@ -5,9 +5,21 @@ import logo from '../img/logo.png'
 
 export default class Login extends Component {
 
-        
 
-    
+    state = {
+        LoginUsername: '',
+        LoginPassword: '',
+        NewUsername: '',
+        NewPassword: '',
+        email: '',
+    }        
+
+    handleChange = (event) => {
+        this.setState({
+            [event.target.id]: event.target.value,
+        });
+    }
+
     render() {
         return (
             <div>
@@ -22,7 +34,7 @@ export default class Login extends Component {
 
                     </div>
                     <div className='logo'>
-                        <img src={logo}/>  
+                        <img src={logo} alt=''/>  
                     </div>
                     <div>
                         <form className='sign-up' onSubmit={ (evt) => this.props.handleSignUp(evt) } >
