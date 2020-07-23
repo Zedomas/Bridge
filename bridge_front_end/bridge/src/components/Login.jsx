@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import logo from '../img/logo.png'
 
-let baseURL = 'http://localhost:3003'
+
 
 export default class Login extends Component {
 
@@ -19,62 +19,6 @@ export default class Login extends Component {
         });
     }
 
-    handleLogin = (event) => {
-        event.preventDefault();
-        fetch(baseURL + '/users/login', {
-            method: 'POST',
-            body: JSON.stringify({
-                username: this.state.LoginUsername,
-                password: this.state.LoginPassword
-            }),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        }).then(res => {
-            return res.json();
-        }).then(data => {
-            // this.props.addUser(data);
-            this.setState({
-                 user: data.username
-            });
-        });
-    }
-
-    handleSignUp = (event) => {
-        event.preventDefault();
-        fetch(baseURL + '/users/signup', {
-            method: 'POST',
-            body: JSON.stringify({
-                username: this.state.NewUsername,
-                password: this.state.NewPassword,
-                email: this.state.email
-            }),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        }).then(res => {
-            return res.json();
-        }).then(data => {
-            console.log(data)
-            this.setState({
-                user: data.username
-            });
-            fetch(baseURL + '/bridge', {
-                method: 'POST',
-                body: JSON.stringify({
-                    username: data.username,
-                }),
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            }).then(res => {
-                return res.json();
-            }).then(data => {
-                console.log(data)
-
-        });
-    })
-}
 
 
 
@@ -84,7 +28,7 @@ export default class Login extends Component {
                 <div className='log-inPage'>
                     <div className='log-in'>
 
-                    <form onSubmit={ (evt) => this.handleLogin(evt) } >
+                    <form onSubmit={ (evt) => this.props.handleLogin(evt) } >
                         <input type='text' value={this.state.LoginUsername} id='LoginUsername' placeholder='Username' onChange={this.handleChange} ></input>
 
                         <input type='password' value={this.state.LoginPassword} id='LoginPassword' placeholder='Password' onChange={this.handleChange} ></input>
@@ -96,7 +40,7 @@ export default class Login extends Component {
                         <img src={logo}/>  
                     </div>
                     <div>
-                        <form className='sign-up' onSubmit={ (evt) => this.handleSignUp(evt) } >
+                        <form className='sign-up' onSubmit={ (evt) => this.props.handleSignUp(evt) } >
 
                         <input type='text' value={this.state.NewUsername} id='NewUsername' placeholder='Username' onChange={this.handleChange} ></input>
                         <input type='email' placeholder='Email' onChange={this.handleChange} value={this.state.email} id='email'></input>
