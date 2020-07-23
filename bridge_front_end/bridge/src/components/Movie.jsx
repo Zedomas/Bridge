@@ -1,17 +1,52 @@
 import React, { Component } from 'react';
 
+let baseURL = 'http://localhost:3003'
+
+
 export default class componentName extends Component {
-  state = {
-    baseURL: 'http://www.omdbapi.com/?apikey=b764ea59&t=',
-    movieTitle: '',
-    searchURL: '',
+
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      baseURL: 'http://www.omdbapi.com/?apikey=b764ea59&t=',
+      movieTitle: '',
+      searchURL: '',
+      movie: null
+    }
   }
+
+
+ 
 
   handleChange(evt) {
     this.setState({
       movieTitle: evt.target.value,
     });
   }
+
+  addMovie(event) {
+    event.preventDefault();
+    fetch(baseURL + '/movies/add', {
+      method: 'POST',
+      body: JSON.stringify({
+          title: this.state.movie.Title,
+          year: this.state.movie.Year,
+          image: this.state.movie.Poster,
+          genre: this.state.movie.Genre,
+          plot: this.state.movie.Plot,
+      }),
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      }).then(res => {
+      return res.json();
+      }).then(data => {
+      // this.props.addUser(data);
+
+    });
+  }
+
 
   handleSubmit(evt) {
     evt.preventDefault();
@@ -21,11 +56,10 @@ export default class componentName extends Component {
       fetch(this.state.searchURL ).then(response => {
         return response.json();
       }).then(data => {
-        fetch(th)
+        
         this.setState({
           movie: data,
         });
-
       }).catch(err => {
         console.log('error:', err);
       });
@@ -57,6 +91,8 @@ export default class componentName extends Component {
             </div> 
             : ''
         }
+
+        <button onClick={(event) => this.addMovie(event)}>Add movie</button>
       </>
     )
   }
