@@ -56,7 +56,9 @@ handleLogin = (event) => {
   }).then(data => {
       // this.props.addUser(data);
       this.setState({
-           username: data.username
+           username: data.username,
+           LoginUsername: '',
+           LoginPassword: ''
       });
   });
 }
@@ -122,10 +124,10 @@ render () {
             LoginPassword = {this.state.LoginPassword}
             NewUsername = {this.state.NewUsername}
             NewPassword = {this.state.NewPassword}
-            username = {this.state.username}
             email = {this.state.email}
             />
         } />
+
           <Route 
           exact path='/movies' 
           render={ () => 
@@ -134,6 +136,7 @@ render () {
             />
           }
           />
+
           <Route exact path='/music' component={Music}/>
         </Switch>
       
