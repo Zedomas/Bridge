@@ -28,11 +28,11 @@ const corsOptions = {
 
 app.use(cors(corsOptions))
 
-//CONTROLLER
+//Bridge CONTROLLER
 let bridgeController=require('./Controller/bridge.js')
 app.use('/bridge', bridgeController)
 
-//CONTROLLER
+//User CONTROLLER
 let userController=require('./Controller/users_controller.js')
 app.use('/users', userController)
 

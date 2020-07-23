@@ -4,7 +4,7 @@ const users = express.Router()
 const User = require('../models/user.js')
 
 // SHOW ROUTE for new users //
-users.get('/', (req, res) => {
+users.get('/login', (req, res) => {
   User.find({}, (err, foundUser) => {
       if (err) {
           res.status(400).json({error: message})
