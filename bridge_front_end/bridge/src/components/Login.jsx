@@ -33,9 +33,9 @@ export default class Login extends Component {
         }).then(res => {
             return res.json();
         }).then(data => {
-            this.props.addUser(data);
+            // this.props.addUser(data);
             this.setState({
-                name: '',
+                 user: data.username
             });
         });
     }
@@ -59,8 +59,22 @@ export default class Login extends Component {
             this.setState({
                 user: data.username
             });
+            fetch(baseURL + '/bridge', {
+                method: 'POST',
+                body: JSON.stringify({
+                    username: data.username,
+                }),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            }).then(res => {
+                return res.json();
+            }).then(data => {
+                console.log(data)
+
         });
-    }
+    })
+}
 
 
 

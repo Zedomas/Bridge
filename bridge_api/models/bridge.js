@@ -1,6 +1,8 @@
 let mongoose = require('mongoose')
 
 let bridgeSchema = mongoose.Schema({
+    // Added username for searching feature
+    username: {type: String},
     firstName: {type: String},
     lastName: {type: String},
     bio: {type: String},
