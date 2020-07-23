@@ -1,8 +1,8 @@
 let express = require('express')
 let app = express()
 let PORT = 3003
-let cors= require('cors')
-let mongoose= require('mongoose')
+let cors = require('cors')
+let mongoose = require('mongoose')
 
 mongoose.connection.on('error', err => console.log(err.message + ' is Mongod Ready and Running Baby?'))
 mongoose.connection.on('disconnected', () => console.log('mongo disconnected'))
@@ -28,7 +28,15 @@ const corsOptions = {
 
 app.use(cors(corsOptions))
 
-//CONTROLLER
+//Bridge CONTROLLER
 let bridgeController=require('./Controller/bridge.js')
 app.use('/bridge', bridgeController)
 
+//User CONTROLLER
+let userController=require('./Controller/users_controller.js')
+app.use('/users', userController)
+
+
+app.listen(PORT, () => {
+  console.log('listening on port:', PORT)
+})

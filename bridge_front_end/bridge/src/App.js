@@ -9,7 +9,6 @@ import MessageInbox from './components/MessageInbox.jsx'
 import './App.css';
 import { Switch , Route} from 'react-router-dom'
 
-let baseURL = 'http://localhost:3003'
 
 class App extends React.Component {
 

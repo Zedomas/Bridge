@@ -1,9 +1,9 @@
 let mongoose = require('mongoose')
-
-let bridgeSchema = new mongoose.Schema({
+// changed it from bridgeSchema to userSchema to match the export
+let userSchema = new mongoose.Schema({
     username: {type:String, unique: true, required: true},
     password: {type:String, required: true},
-    confirmpassword: {type:String,  required: true},
+    //removed confirm password, we can just compare if the two values are equal on the front end
     email: {type: String, required: true}
 
 
@@ -12,4 +12,4 @@ let bridgeSchema = new mongoose.Schema({
 
 
 let User= mongoose.model('User', userSchema)
-module.exports= User
+module.exports = User
