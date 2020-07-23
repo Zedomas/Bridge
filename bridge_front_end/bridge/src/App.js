@@ -28,8 +28,7 @@ class App extends React.Component {
     }).then(user =>{
       console.log(user)
       this.setState({
-        username: user.username,
-        img: user.image 
+        username:this.state.user.username,
   
       })
     })
