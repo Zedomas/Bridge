@@ -37,6 +37,7 @@ export default class componentName extends Component {
               preview: song.preview,
               albumCover: song.album.cover,
               album: song.album.title,
+              user: this.props.user
           }),
           headers: {
               'Content-Type': 'application/json',

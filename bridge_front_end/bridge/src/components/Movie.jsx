@@ -43,6 +43,7 @@ export default class componentName extends Component {
           image: this.state.movie.Poster,
           genre: this.state.movie.Genre,
           plot: this.state.movie.Plot,
+          user: this.props.user
       }),
       headers: {
           'Content-Type': 'application/json',
