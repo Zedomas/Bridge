@@ -10,6 +10,7 @@ let bookSchema = new mongoose.Schema({
     image: {type: String},
     rating: {type: String},
     preview: {type: String},
+    user: {type: String}
 })
 
 
