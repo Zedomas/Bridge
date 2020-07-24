@@ -26,6 +26,15 @@ export default class componentName extends Component {
     });
   }
 
+  // // find books function
+  // findBooks =() => {
+  //   fetch(serverURL + '/books').then((res) => {
+  //     return res.json()
+  //   }).then(data => {
+  //     this.setState({books: data})
+  //   })
+  // }
+
   // function to add book to the database
   addBook(event) {
     // prevent default refresh

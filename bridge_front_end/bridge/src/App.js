@@ -136,6 +136,9 @@ render () {
           user={this.state.username}
           />}/>
 
+          <Route exact path='/books' render={() => <Books 
+          user={this.state.username}
+          />}/>
         </Switch>
       
       </div>
