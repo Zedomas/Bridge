@@ -1,6 +1,7 @@
 import React from 'react';
 import Login from './components/Login.jsx'
 import Movie from './components/Movie.jsx'
+import Books from './components/Books.jsx'
 import Music from './components/Music.jsx'
 import Navbar from './components/Navbar.jsx'
 
@@ -129,6 +130,7 @@ render () {
         } />
           <Route exact path='/movies' render={()=><Movie username={this.state.username}/>}/>
           <Route exact path='/music' component={Music}/>
+          <Route exact path='/books' component={Books}/>
         </Switch>
       
       </div>
