@@ -3,7 +3,7 @@ import Login from './components/Login.jsx'
 import Movie from './components/Movie.jsx'
 import Music from './components/Music.jsx'
 import Navbar from './components/Navbar.jsx'
-
+import Last from './components/Last.jsx'
 import './App.css';
 import { Switch , Route} from 'react-router-dom'
 
@@ -128,6 +128,7 @@ render () {
         } />
           <Route exact path='/movies' component={Movie}/>
           <Route exact path='/music' component={Music}/>
+          <Route exact path='/lastDance' component={Last}/>
         </Switch>
       
       </div>

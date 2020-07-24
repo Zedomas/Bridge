@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import logo from '../img/logo.png'
+import validateCredentials from './Authenticator.jsx'
 
 
 
@@ -19,6 +20,21 @@ export default class Login extends Component {
             [event.target.id]: event.target.value,
         });
     }
+
+   isValid(){
+       let {errors, isValid} = validateCredentials(this.state);
+       if(!isValid){
+           this.setState({errors})
+       }
+   }
+   onSubmit(event){
+       event.preventDefault()
+       if(this.isValid()){
+
+       }
+   }
+
+
 
     render() {
         return (
