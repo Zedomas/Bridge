@@ -38,13 +38,15 @@ let userController=require('./Controller/users_controller.js')
 app.use('/users', userController)
 
 //NBA Controller
-app.use(bodyParser.json());
-let bballHoops = require('./Controller/nbarouter');
 
+
+
+app.use(bodyParser.json());
+let hoops = require('./controller/basketball');
 app.get('/', (req, res) => {
-  res.status(200).json('NBA Teams')
+  res.status(200).json('Basketball api updates')
 });
-app.use('/api/v1/lastdance', bballHoops);
+app.use('/api/v1', hoops);
 
 
 

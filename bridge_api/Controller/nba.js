@@ -1,10 +1,10 @@
-//let config = require('../config/config.js');
+
 let unirest = require('unirest');
 
 
 function basketBall(req, res) {
 let unirest = require("unirest");
-req = unirest("GET", 'https://free-nba.p.rapidapi.com/games');
+req = unirest("GET",'https://free-nba.p.rapidapi.com/games');
 req.headers({
     "x-rapidapi-host": 'free-nba.p.rapidapi.com',
     "x-rapidapi-key": '56329c60admsh194ed4c62c7433ep13b95bjsn5063b035ff93'
