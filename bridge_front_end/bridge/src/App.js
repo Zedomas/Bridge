@@ -128,10 +128,19 @@ render () {
             email = {this.state.email}
             />
         } />
-          <Route exact path='/movies' render={()=><Movie username={this.state.username}/>}/>
-          <Route exact path='/music' component={Music}/>
-          <Route exact path='/books' component={Books}/>
+
           <Route exact path='/lastdance' component={Last}/>
+          <Route exact path='/movies' render={()=><Movie 
+          user={this.state.username}
+
+          />}/>
+          <Route exact path='/music' render={() => <Music 
+          user={this.state.username}
+          />}/>
+
+          <Route exact path='/books' render={() => <Books 
+          user={this.state.username}
+          />}/>
         </Switch>
       
       </div>

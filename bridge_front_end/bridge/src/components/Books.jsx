@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 
+// server variables setup and clearly laid out for heroku and local use
 let serverURL = process.env.serverURL || 'http://localhost:3003'
+// set variable to the .env hidden key
 const api_book_key = process.env.api_book_key
 
 export default class componentName extends Component {
 
-
   constructor(props) {
     super(props)
+    // default state for this component set
     this.state = {
       baseURL: 'https://www.googleapis.com/books/v1/volumes?q=',
       apiKey: api_book_key,
@@ -17,19 +19,30 @@ export default class componentName extends Component {
     }
   }
 
-
- 
-
+  // setup function for handling text entry box
   handleChange(evt) {
     this.setState({
       bookTitle: evt.target.value,
     });
   }
 
+  // // find books function
+  // findBooks =() => {
+  //   fetch(serverURL + '/books').then((res) => {
+  //     return res.json()
+  //   }).then(data => {
+  //     this.setState({books: data})
+  //   })
+  // }
+
+  // function to add book to the database
   addBook(event) {
-    event.preventDefault();
+    // prevent default refresh
+    event.preventDefault()
+    // fetch to the grab info from book books api via the book controller route
     fetch(serverURL + '/books/add', {
       method: 'POST',
+      // pulling json data from the api call and assigning it to objects
       body: JSON.stringify({
           title: this.state.books.items[0].volumeInfo.title,
           author: this.state.books.items[0].volumeInfo.authors[0],
@@ -49,7 +62,6 @@ export default class componentName extends Component {
 
     });
   }
-
 
   handleSubmit(evt) {
     evt.preventDefault();
@@ -72,14 +84,13 @@ export default class componentName extends Component {
   render() {
     return (
       <>
-          <form onSubmit={ (evt) => this.handleSubmit(evt) }>
+        <form onSubmit={ (evt) => this.handleSubmit(evt) }>
           <label htmlFor="bookTitle"> Book Title: </label>
           <input type="text" id="bookTitle"
             value={ this.state.bookTitle}
             onChange={ (evt) => this.handleChange(evt) }/>
           <input type="submit" value="Search"/>
         </form>
-
 
         {
           this.state.books
@@ -92,11 +103,11 @@ export default class componentName extends Component {
             <h3>Published Date: {this.state.books.items[0].volumeInfo.publishedDate}</h3>
             <h3>Average Rating: {this.state.books.items[0].volumeInfo.averageRating}</h3>
             <a href={this.state.books.items[0].volumeInfo.previewLink}>Preview Here</a>
+            <button onClick={(event) => this.addBook(event)}>Add Book to Feed</button>
           </div> 
             : ''
         }
 
-        <button onClick={(event) => this.addBook(event)}>Add Book to Feed</button>
         </>
     )
   }
