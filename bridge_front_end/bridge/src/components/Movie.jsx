@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Modals from './Modals'
 
 let baseURL = 'http://localhost:3003'
 
@@ -125,6 +126,7 @@ export default class componentName extends Component {
                       <h3>Genre: {movie.genre}</h3>
                       <h3>Year: {movie.year}</h3>
                       <h3>Plot: {movie.plot}</h3> 
+                      <Modals/>
                   </div>
                 
               )
