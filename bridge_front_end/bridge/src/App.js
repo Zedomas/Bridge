@@ -5,7 +5,7 @@ import Books from './components/Books.jsx'
 import Music from './components/Music.jsx'
 import Navbar from './components/Navbar.jsx'
 import Welcome from './components/Welcome.jsx'
-import { Redirect } from 'react-router-dom'
+
 
 
 import './App.css';
@@ -64,7 +64,9 @@ handleLogin = (event) => {
            LoginUsername: '',
            LoginPassword: ''
       });
-  });
+  }).catch(err => {
+    console.log(err);
+});
 }
 
 handleSignUp = (event) => {
@@ -126,8 +128,11 @@ render () {
           render={ () =>
           <Welcome  username = {this.state.username}
             />
-          } /> 
-        
+
+        } />
+
+          {/* <Route exact path='/lastdance' component={Last}/> */}
+
           <Route exact path='/movies' render={()=><Movie 
           user={this.state.username}
 
