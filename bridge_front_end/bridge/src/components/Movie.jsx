@@ -122,7 +122,7 @@ export default class componentName extends Component {
               return (
                 <div  className='movie'>
                       <h2>{movie.title}</h2>
-                      <img className='movieImg' src={movie.image} />
+                      <img className='movieImg' alt=''src={movie.image} />
                       <h3>Genre: {movie.genre}</h3>
                       <h3>Year: {movie.year}</h3>
                       <h3>Plot: {movie.plot}</h3> 

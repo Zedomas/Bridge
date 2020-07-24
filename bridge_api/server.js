@@ -48,6 +48,14 @@ app.use('/users', userController)
 let moviesController=require('./Controller/movies.js')
 app.use('/movies', moviesController)
 
+//Books CONTROLLER
+let booksController=require('./Controller/books.js')
+app.use('/books', booksController)
+
+//Music CONTROLLER
+let musicController=require('./Controller/music.js')
+app.use('/music', musicController)
+
 
 app.listen(PORT, () => {
   console.log('listening on port:', PORT)

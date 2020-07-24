@@ -171,11 +171,14 @@ width: 200px;
   height: 250px;
 }
 
-
-.models{
-  width: 500px;
-  height: 200px;
+.modal{
+  width: 600px;
+  height: 400px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: gray;
+  margin-left: 20%;
+  margin-top: 20%;
 }
-

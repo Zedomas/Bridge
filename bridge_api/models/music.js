@@ -3,12 +3,11 @@ let mongoose = require('mongoose')
 
 
 let songSchema = new mongoose.Schema({
-    title: {type:String},
-    year: {type:String},
-    image: {type:String},
-    genre: {type:String},
     artist: {type:String},
-
+    track: {type:String},
+    preview: {type:String},
+    albumCover: {type:String},
+    album: {type:String},
 })
 
 
