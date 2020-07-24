@@ -7,6 +7,7 @@ export default function Navbar() {
             <Link className='nav-link' to='/'>Login</Link>
             <Link className='nav-link' to='/movies'>Movies</Link>
             <Link className='nav-link' to='/music'>Music</Link>
+            <Link className='nav-link' to='/lastdance'>Last Dance</Link>
             <Link className='nav-link' to='/books'>Books</Link>
         </div>
     )
