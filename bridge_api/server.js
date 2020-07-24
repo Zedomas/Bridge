@@ -48,9 +48,16 @@ app.use('/users', userController)
 let moviesController=require('./Controller/movies.js')
 app.use('/movies', moviesController)
 
+<<<<<<< HEAD
 //Books CONTROLLER
 let booksController=require('./Controller/books.js')
 app.use('/books', booksController)
+=======
+//Music CONTROLLER
+let musicController=require('./Controller/music.js')
+app.use('/music', musicController)
+
+>>>>>>> RobDev
 
 app.listen(PORT, () => {
   console.log('listening on port:', PORT)
