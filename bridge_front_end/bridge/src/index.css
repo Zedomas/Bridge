@@ -20,6 +20,7 @@ input[type="text"],input[type="submit"],[type="password"]{
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  margin-top: 20px;
 }
 .form{
   display: flex;
@@ -50,13 +51,14 @@ input[type="text"],input[type="submit"],[type="password"]{
   height: 100%;
   padding-right: 5px;
   padding-left: 5px;
+  font-family: 'Gloria Hallelujah', cursive;
 
 }
 .nav-link:hover{
 background-color:#f77722;
 color: rgb(255, 255, 255);
 }
-h2,h3{
+h1,h2,h3,h4{
   color: white;
   font-family: 'Gloria Hallelujah', cursive;
 }
@@ -95,19 +97,19 @@ input[type="button"],input[type="submit"]{
   
 }
 
-input[type="button"]:hover,input[type="submit"]:hover{
+input[type="button"]:hover,input[type="submit"]:hover,button:hover{
       color: #f77722;
       background-color: white;
 }
 
-input[type="text"],input[type="password"],input[type="email"]{
+input[type="text"],input[type="password"],input[type="email"],button{
   display: inline-block;
   height: 28px;
   padding: 0 30px;
   color: rgb(0, 0, 0);
   font-size: 11px;
   font-weight: 600;
-  line-height: 38px;
+  line-height: 28px;
   letter-spacing: .1rem;
   text-decoration: none;
   background-color: white;
@@ -118,8 +120,13 @@ input[type="email"]{
   margin-top: 10px;
 }
 
-
-
+.imgDiv{
+  transition: 0.7s;
+  margin: 10px;
+}
+.imgDiv:hover{
+  transform: scale(1.2);
+}
 
 
 
@@ -129,7 +136,8 @@ input[type="email"]{
   height: 150px;
 }
 .movieImg{
-height: 200px;
+height: 250px;
+width: 200px;
 }
 .movies{
   display: grid;
@@ -142,4 +150,23 @@ height: 200px;
   flex-direction: column;
   align-items: center;
   border: 1px solid white;
+  margin: 20px;
+  
+}
+.searchMovie{
+  display: flex;
+  align-items:center;
+  justify-content: center;
+}
+.preview{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(100, 81, 81);
+  padding: 10px;
+}
+.previewImg{
+  width: 200px;
+  height: 250px;
 }
