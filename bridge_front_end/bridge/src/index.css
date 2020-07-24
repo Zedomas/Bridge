@@ -125,7 +125,7 @@ input[type="email"]{
   margin: 10px;
 }
 .imgDiv:hover{
-  transform: scale(1.2);
+  transform:scale(1.2) rotate(5deg);
 }
 
 
@@ -169,4 +169,16 @@ width: 200px;
 .previewImg{
   width: 200px;
   height: 250px;
+}
+
+.modal{
+  width: 600px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: gray;
+  margin-left: 20%;
+  margin-top: 20%;
 }

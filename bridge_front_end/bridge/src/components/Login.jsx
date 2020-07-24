@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import logo from '../img/logo.png'
-import {Link} from 'react-router-dom'
-import logoM from '../img/logoM.png'
-import logoMu from '../img/logoMu.png'
-import logoB from '../img/logoB.png'
-import logoV from '../img/logoV.png'
+
+import validateCredentials from './Authenticator.jsx'
+
+
+
+
 export default class Login extends Component {
 
 
@@ -21,6 +22,21 @@ export default class Login extends Component {
             [event.target.id]: event.target.value,
         });
     }
+
+//    isValid(){
+//        let {errors, isValid} = validateCredentials(this.state);
+//        if(!isValid){
+//            this.setState({errors})
+//        }
+//    }
+//    onSubmit(event){
+//        event.preventDefault()
+//        if(this.isValid()){
+
+//        }
+//    }
+
+
 
     render() {
         return (
@@ -49,25 +65,7 @@ export default class Login extends Component {
                 <div className="share">
                     
                 </div>
-                <div className='logo'>
-                    <div className='imgDiv'>
-                    <Link  to='/movies'>
-                        <img  src={logoM} alt=''/>  
-                    </Link>    
-                    </div>
-                    <div className='imgDiv'>
-                        <Link  to='/music'>
-                            <img src={logoMu} alt=''/>  
-                        </Link> 
-                    </div>    
-                    <div className='imgDiv'>
-                    
-                        <img src={logoB} alt=''/>  
-                    </div>    
-                    <div className='imgDiv'>
-                        <img src={logoV} alt=''/>  
-                    </div>       
-                </div>
+            
                 <div className="share">
                 
                 </div>
