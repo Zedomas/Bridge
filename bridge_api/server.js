@@ -56,6 +56,8 @@ app.use('/books', booksController)
 let musicController=require('./Controller/music.js')
 app.use('/music', musicController)
 
+let commentController = require('./Controller/comment.js')
+app.use('/comments' , commentController)
 
 app.listen(PORT, () => {
   console.log('listening on port:', PORT)

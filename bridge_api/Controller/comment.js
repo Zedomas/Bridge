@@ -5,7 +5,8 @@ const Comment = require('../models/comment.js')
 
 
 // INDEX ROUTE
-comments.get('/comments', (req, res) => {
+comments.get('/', (req, res) => {
+    console.log('hey')
     Comment.find({}, (err, foundComments) => {
     if (err) {
         res.status(400).json({ error: err.message })
@@ -15,8 +16,8 @@ comments.get('/comments', (req, res) => {
 })
 
   // CREATE ROUTE
-comments.post('/comments', (req, res) => {
-    console.log(req.body)
+comments.post('/', async (req, res) => {
+    console.log('hello')
     Comment.create(req.body, (error, createdComment) => {
     if (error) {
         res.status(400).json({ error: error.message })

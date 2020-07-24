@@ -37,11 +37,11 @@ export default class Comment extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        fetch( baseURL +  '/comments', {
+        console.log(baseURL)
+        fetch(baseURL + '/comments', {
             method: 'POST',
             body: JSON.stringify({
-                title: this.state.title,
-                url:this.state.url
+                message: this.state.message
             }),
             headers: {
                 'Content-Type': 'application/json',
