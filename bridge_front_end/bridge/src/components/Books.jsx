@@ -35,14 +35,14 @@ export default class componentName extends Component {
   //   })
   // }
 
-  // function to add book to the database
+  // function to add book to the server database
   addBook(event) {
     // prevent default refresh
     event.preventDefault()
     // fetch to the grab info from book books api via the book controller route
     fetch(serverURL + '/books/add', {
       method: 'POST',
-      // pulling json data from the api call and assigning it to objects
+      // pulling json data from the api call and assigning it to objects in objects
       body: JSON.stringify({
           title: this.state.books.items[0].volumeInfo.title,
           author: this.state.books.items[0].volumeInfo.authors[0],
@@ -63,18 +63,24 @@ export default class componentName extends Component {
     });
   }
 
+  // function for the submit button to pull data from the books api
   handleSubmit(evt) {
+    // prevent refresh on default
     evt.preventDefault();
+    // set the state for searchURL which is a combo of base api / search box / apik key insert from the .env folders
     this.setState({
       searchURL: this.state.baseURL + this.state.bookTitle + this.state.apiKey
     }, () => {
+      // fetch response from api to grab json data
       fetch(this.state.searchURL).then(response => {
         return response.json();
       }).then(data => {
+        // send data to console log and to the current state object books
         console.log(data)
         this.setState({
           books: data,
-        });
+        })
+        // send erros to console log
       }).catch(err => {
         console.log('error:', err);
       });
@@ -84,6 +90,7 @@ export default class componentName extends Component {
   render() {
     return (
       <>
+        {/* form for looking up books from the google books api */}
         <form onSubmit={ (evt) => this.handleSubmit(evt) }>
           <label htmlFor="bookTitle"> Book Title: </label>
           <input type="text" id="bookTitle"
@@ -91,7 +98,7 @@ export default class componentName extends Component {
             onChange={ (evt) => this.handleChange(evt) }/>
           <input type="submit" value="Search"/>
         </form>
-
+        {/* setting if statemetn for if the state is blank then it'll show the pull from the api and if not it'll show nothing */}
         {
           this.state.books
             ? <div>
