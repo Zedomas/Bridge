@@ -15,7 +15,8 @@ export default class componentName extends Component {
       apiKey: api_book_key,
       searchURL: '',
       bookTitle: '',
-      book: null
+      book: null,
+      booklist: []
     }
   }
 
@@ -26,14 +27,14 @@ export default class componentName extends Component {
     });
   }
 
-  // // find books function
-  // findBooks =() => {
-  //   fetch(serverURL + '/books').then((res) => {
-  //     return res.json()
-  //   }).then(data => {
-  //     this.setState({books: data})
-  //   })
-  // }
+  // find books function
+  findBooks =() => {
+    fetch(serverURL + '/books').then((res) => {
+      return res.json()
+    }).then(data => {
+      this.setState({booklist: data})
+    })
+  }
 
   // function to add book to the server database
   addBook(event) {
@@ -58,9 +59,17 @@ export default class componentName extends Component {
       }).then(res => {
       return res.json();
       }).then(data => {
-      // this.props.addUser(data);
-
+      this.setState({book:null});
+      this.updateBooks()
     });
+  }
+
+  updateBooks = (newBook) => {
+    const copyBooks = [...this.state.booklist];
+    copyBooks.push(newBook);
+    this.setState({
+      booklist: copyBooks,
+    })
   }
 
   // function for the submit button to pull data from the books api
@@ -87,6 +96,10 @@ export default class componentName extends Component {
     });
   }
 
+  componentDidMount() {
+    this.findBooks()
+  }
+
   render() {
     return (
       <>
@@ -100,21 +113,40 @@ export default class componentName extends Component {
         </form>
         {/* setting if statemetn for if the state is blank then it'll show the pull from the api and if not it'll show nothing */}
         {
+          // takes state from handleSubmit where books is given data from api call and if that exists then it shows the preview window with the book found in the search
           this.state.books
-            ? <div>
-
+            ? <div className= 'preview'>
+            {/* grab title of book from the json object array */}
             <h1>Title: {this.state.books.items[0].volumeInfo.title}</h1>
+            {/* grab the image of the book from the json object*/}
             <img className='bookPic' src={this.state.books.items[0].volumeInfo.imageLinks.thumbnail} alt={this.state.books.items[0].volumeInfo.title}/>
+            {/* grab authors from the json data -- array returned so it grabs the first */}
             <h2>Author: {this.state.books.items[0].volumeInfo.authors[0]}</h2>
+            {/* grabs description from the json data*/}
             <h3>Description: {this.state.books.items[0].volumeInfo.description}</h3>
+            {/* grabs the date it was published */}
             <h3>Published Date: {this.state.books.items[0].volumeInfo.publishedDate}</h3>
+            {/* rating is pulled from google books rating of books */}
             <h3>Average Rating: {this.state.books.items[0].volumeInfo.averageRating}</h3>
+            {/* this is a link to a readable preview from the book */}
             <a href={this.state.books.items[0].volumeInfo.previewLink}>Preview Here</a>
+            {/* button to add the book info the database and make this part of the feed */}
             <button onClick={(event) => this.addBook(event)}>Add Book to Feed</button>
           </div> 
             : ''
         }
-
+          {/* <div className = "book-grid">
+            {
+              console.log(this.state.booklist)
+              this.state.booklist.map(book => {
+                return (
+                  <div className = 'book'>
+                    <h2>{}</h2>
+                  </div>
+                )
+              })
+            }
+          </div> */}
         </>
     )
   }
