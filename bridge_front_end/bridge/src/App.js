@@ -4,7 +4,7 @@ import Movie from './components/Movie.jsx'
 import Books from './components/Books.jsx'
 import Music from './components/Music.jsx'
 import Navbar from './components/Navbar.jsx'
-
+import Last from './Last.js'
 import './App.css';
 import { Switch , Route} from 'react-router-dom'
 
@@ -128,6 +128,8 @@ render () {
             email = {this.state.email}
             />
         } />
+
+          <Route exact path='/lastdance' component={Last}/>
           <Route exact path='/movies' render={()=><Movie 
           user={this.state.username}
 
