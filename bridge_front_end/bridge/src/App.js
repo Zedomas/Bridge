@@ -1,6 +1,7 @@
 import React from 'react';
 import Login from './components/Login.jsx'
 import Movie from './components/Movie.jsx'
+import Books from './components/Books.jsx'
 import Music from './components/Music.jsx'
 import Navbar from './components/Navbar.jsx'
 import Last from './Last.js'
@@ -56,7 +57,9 @@ handleLogin = (event) => {
   }).then(data => {
       // this.props.addUser(data);
       this.setState({
-           username: data.username
+           username: data.username,
+           LoginUsername: '',
+           LoginPassword: ''
       });
   });
 }
@@ -122,13 +125,13 @@ render () {
             LoginPassword = {this.state.LoginPassword}
             NewUsername = {this.state.NewUsername}
             NewPassword = {this.state.NewPassword}
-            username = {this.state.username}
             email = {this.state.email}
             />
         } />
-          <Route exact path='/movies' component={Movie}/>
+          <Route exact path='/movies' render={()=><Movie username={this.state.username}/>}/>
           <Route exact path='/music' component={Music}/>
-          <Route exact path='/lastDance' component={Last}/>
+          <Route exact path='/books' component={Books}/>
+          <Route exact path='/lastdance' component={Last}/>
         </Switch>
       
       </div>
