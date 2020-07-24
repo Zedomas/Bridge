@@ -128,12 +128,18 @@ input[type="email"]{
   width: 150px;
   height: 150px;
 }
+.movieImg{
+height: 200px;
+}
+.movies{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+
 .movie{
-  height: 50%;
-  width: 50%;
-  border: 1px solid black;
+  width: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  border: 1px solid white;
 }

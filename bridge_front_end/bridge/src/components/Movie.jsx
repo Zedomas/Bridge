@@ -116,16 +116,19 @@ export default class componentName extends Component {
           {
             this.state.movies.map(movie => {
               return (
-                <div>
-                  <h2>{movie.title}</h2>
-                  <img src={movie.image} />
-                  <h3>Genre: {movie.genre}</h3>
-                  <h3>Year: {movie.year}</h3>
-                  <h4>Plot: {movie.plot}</h4> 
+                <div className="movies">
+                  <div className='movie'>
+                      <h2>{movie.title}</h2>
+                      <img className='movieImg' src={movie.image} />
+                      <h3>Genre: {movie.genre}</h3>
+                      <h3>Year: {movie.year}</h3>
+                      <h3>Plot: {movie.plot}</h3> 
+                  </div>
                 </div>
               )
             })
           }
+         
         </div>
 
       </>
