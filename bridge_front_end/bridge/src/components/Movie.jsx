@@ -92,37 +92,41 @@ export default class componentName extends Component {
   render() {
     return (
       <>
+        <div className='searchMovie'>
         <form onSubmit={ (evt) => this.handleSubmit(evt) }>
-          <label htmlFor="movieTitle"> Movie Title: </label>
-          <input type="text" id="movieTitle"
+            <input type="text" id="movieTitle" placeholder="Movie's name"
             value={ this.state.movieTitle}
             onChange={ (evt) => this.handleChange(evt) }/>
           <input type="submit" value="Search"/>
-        </form>
+        </form> 
+        </div>
         {
           this.state.movie
-            ? <div>
+            ? <div className='preview'>
 
-          <h1>Title: {this.state.movie.Title}</h1>
+          <h1>{this.state.movie.Title}</h1>
             <h2>Year: {this.state.movie.Year}</h2>
-            <img className='moviePic' src={this.state.movie.Poster} alt={this.state.movie.Title}/>
+            <img className='previewImg' src={this.state.movie.Poster} alt={this.state.movie.Title}/>
             <h3>Genre: {this.state.movie.Genre}</h3>
-            <h4>Plot: {this.state.movie.Plot}</h4> </div> 
+            <h4>Plot: {this.state.movie.Plot}</h4> 
+            <button onClick={(event) => this.addMovie(event)}>Add movie</button>
+            </div> 
             : ''
         }
-        <button onClick={(event) => this.addMovie(event)}>Add movie</button>
+        
 
-        <div>
+        <div className="movies">
           {
             this.state.movies.map(movie => {
               return (
-                <div>
-                  <h2>{movie.title}</h2>
-                  <img src={movie.image} />
-                  <h3>Genre: {movie.genre}</h3>
-                  <h3>Year: {movie.year}</h3>
-                  <h4>Plot: {movie.plot}</h4> 
-                </div>
+                <div  className='movie'>
+                      <h2>{movie.title}</h2>
+                      <img className='movieImg' src={movie.image} />
+                      <h3>Genre: {movie.genre}</h3>
+                      <h3>Year: {movie.year}</h3>
+                      <h3>Plot: {movie.plot}</h3> 
+                  </div>
+                
               )
             })
           }
