@@ -11,6 +11,16 @@ export default class componentName extends Component {
         results: null
     }
     
+    findSongs= () => {
+        fetch(baseURL + '/music').then(res => {
+          return res.json();
+        }).then(data => {
+          this.setState({
+            songs: data,
+          });
+        });
+      }
+
     handleChange(evt) {
         this.setState({
         songTitle: evt.target.value,
@@ -27,6 +37,7 @@ export default class componentName extends Component {
               preview: song.preview,
               albumCover: song.album.cover,
               album: song.album.title,
+              user: this.props.user
           }),
           headers: {
               'Content-Type': 'application/json',
@@ -77,6 +88,10 @@ export default class componentName extends Component {
             console.log(err);
         });
     }
+
+    componentDidMount() {
+        this.findSongs();
+      }
     
     render() {
         return (
