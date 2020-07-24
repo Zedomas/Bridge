@@ -6,7 +6,7 @@ import axios from "axios";
 export default function Last(){
   let [scores, setScores] = useState([]);
 
-  let base_URL = `http://localhost:3003/api/v1/lastdance`;
+  let base_URL = `http://localhost:3003/api/v1/updates`;
 
   useEffect(() => {
        
@@ -17,12 +17,6 @@ export default function Last(){
        .catch((err) => {
          console.log(err)
        })
-
-    // window.$(document).ready(function () {
-    //   window.$('#dtBasicExample').DataTable();
-    //   window.$('.dataTables_length').addClass('bs-select');
-    // });
- 
   }, [])
 
     return (
@@ -104,4 +98,6 @@ export default function Last(){
       </>
     );
   }
+
+  
 

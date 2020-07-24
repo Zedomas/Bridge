@@ -3,7 +3,7 @@ import Login from './components/Login.jsx'
 import Movie from './components/Movie.jsx'
 import Music from './components/Music.jsx'
 import Navbar from './components/Navbar.jsx'
-import Last from './components/Last.jsx'
+import Last from './Last.js'
 import './App.css';
 import { Switch , Route} from 'react-router-dom'
 
