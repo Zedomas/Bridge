@@ -8,6 +8,7 @@ let songSchema = new mongoose.Schema({
     preview: {type:String},
     albumCover: {type:String},
     album: {type:String},
+    user: {type: String}
 })
 
 

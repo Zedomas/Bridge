@@ -2,27 +2,15 @@ const express = require('express')
 const book = express.Router()
 const Books = require('../models/books.js')
 
-// // SHOW ROUTE for new users //
-// movie.post('/login', (req, res) => {
-
-//   console.log(req.body)
-  
-//   User.findOne({ username: req.body.username}, (err, foundUser) => {
-//     console.log(foundUser)
-//     if (!foundUser) {
-//         res.status(400).json({error: message})
-//         // need to send back a no found user
-//     } else {
-//         if (bcrypt.compareSync(req.body.password, foundUser.password)) {
-//             res.status(200).json(foundUser) 
-//         } else {
-//            //needs to say failed password match
-//         }
-//     }
-//   })
-
-// })
-
+// Index Route
+book.get('/', (req, res) => {
+  Books.find({}, (err, foundBooks) => {
+    if (err) {
+      res.status(400).json({ error: err.message })
+    }
+    res.status(200).json(foundBooks)
+  })
+})
 
 // Add a book
 book.post('/add', async (req, res) => {
