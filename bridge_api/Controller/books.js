@@ -1,6 +1,6 @@
 const express = require('express')
-const music = express.Router()
-const Songs = require('../models/music.js')
+const book = express.Router()
+const Books = require('../models/books.js')
 
 // // SHOW ROUTE for new users //
 // movie.post('/login', (req, res) => {
@@ -24,15 +24,15 @@ const Songs = require('../models/music.js')
 // })
 
 
-// Add a movie
-music.post('/add', async (req, res) => {
+// Add a book
+book.post('/add', async (req, res) => {
   console.log(req.body)
-  Songs.create(req.body, (err, createdSong) => {
+  Books.create(req.body, (err, createdBook) => {
     if (err) {
         res.status(400).json({error: error.message})
     }
-        res.status(200).send(createdSong)
+        res.status(200).send(createdBook)
   })
 })
 
-module.exports = music
+module.exports = book
