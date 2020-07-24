@@ -92,11 +92,11 @@ export default class componentName extends Component {
             <h3>Published Date: {this.state.books.items[0].volumeInfo.publishedDate}</h3>
             <h3>Average Rating: {this.state.books.items[0].volumeInfo.averageRating}</h3>
             <a href={this.state.books.items[0].volumeInfo.previewLink}>Preview Here</a>
+            <button onClick={(event) => this.addBook(event)}>Add Book to Feed</button>
           </div> 
             : ''
         }
 
-        <button onClick={(event) => this.addBook(event)}>Add Book to Feed</button>
         </>
     )
   }
