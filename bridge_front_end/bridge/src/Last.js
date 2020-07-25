@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useForm } from 'react';
 import axios from "axios";
+
 
 import espn2 from './img/espn-nba-logo.png'
 import espn3 from './img/nba-countdown.jpg'
@@ -17,8 +18,8 @@ export default function Last(){
 
   let base_URL = `http://localhost:3003/api/v1/updates`;
 
-  /*handleChange=(evt)=>{
-    this.setState({
+  /*let handleChange=(evt)=>{
+    setState({
       nbaTeam: evt.target.value,
     })
   }*/
@@ -29,6 +30,7 @@ export default function Last(){
        axios.get(base_URL)
        .then(({ data }) => {
          setScores(data);
+         console.log(data)
        })
        .catch((err) => {
          console.log(err)
@@ -58,20 +60,19 @@ export default function Last(){
                     <h4 id= 'logoNba' className="card-title"><img src={kobe} width='100' height= '70'  alt="basket" />{""}<strong></strong></h4>
                     <h4 id= 'logoNba' className="card-title"><img src={espn2} width='100' height= '70'  alt="basket" />{""}<strong></strong></h4>
                     <h4 id= 'logoNba' className="card-title"><img src={espn3} width='100' height= '70'  alt="basket" />{""}<strong></strong></h4><br/><br/>
+
+
+
+
+
+
+                
                    
-            <form onClick={ (evt) => this.useEffect(evt) }>
-                  <input type="text" id="allensub" placeholder="NBA Team" width='200'
-                      //value={ this.state.nbaTeam}
-                      // onChange={ (evt) => this.handleChange(evt) }
-                       />
-          <input width='70' height= '30' id='allenSubmitButton' type="submit"/> 
-          </form> 
-                      <br/><br/>
-                   <h4  className="card-title"><img src={teamlogo} width='500' height= '200'  alt="basket" />{""}<strong></strong></h4>
+          
 
+            {scores.home_team ?
 
-
-                    {/* table */}
+                    
                     <table id="dtBasicExample" className="table table-striped table-bordered table-sm" cellSpacing="0" width="100%">
                         <thead>
                           <tr>
@@ -124,14 +125,13 @@ export default function Last(){
                           </tr>
                         </tfoot>
                       </table>
-                    
-                    <a className="px-2 fa-lg li-ic" href="#!"><i className="fab fa-linkedin-in"></i></a>
-                    <a className="px-2 fa-lg tw-ic" href="#!"><i className="fab fa-twitter"></i></a>
-                    <a className="px-2 fa-lg fb-ic" href="#!"><i className="fab fa-facebook-f"></i></a>
+                    : ''}
+              
                   </div>
                 </div>
           </div>
       </div>
+    
 
       </main>
     </>
