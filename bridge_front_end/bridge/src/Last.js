@@ -61,7 +61,15 @@ export default function Last(){
                     <h4 id= 'logoNba' className="card-title"><img src={espn2} width='100' height= '70'  alt="basket" />{""}<strong></strong></h4>
                     <h4 id= 'logoNba' className="card-title"><img src={espn3} width='100' height= '70'  alt="basket" />{""}<strong></strong></h4><br/><br/>
 
-
+                    <form >onSubmit={  useEffect() }>
+                  <input type="text" id="allensub" placeholder="NBA Team" width='200'
+                      value={scores.home_team}
+                    //  onChange={ (evt) => handleChange(evt) }
+                       />
+          <input width='70' height= '30' id='allenSubmitButton' type="submit"/> 
+          </form> 
+                      <br/><br/>
+                   <h4  className="card-title"><img src={teamlogo} width='500' height= '200'  alt="basket" />{""}<strong></strong></h4>
 
 
 
