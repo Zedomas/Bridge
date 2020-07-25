@@ -25,15 +25,14 @@ export default function Last(){
 
 
   useEffect(() => {
-       
-       axios.get(base_URL)
-       .then(({ data }) => {
-         setScores(data);
-       })
-       .catch((err) => {
-         console.log(err)
-       })
-  }, [])
+      axios.get(base_URL)
+      .then(({ data }) => {
+        setScores(data);
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+}, [])
 
 
  

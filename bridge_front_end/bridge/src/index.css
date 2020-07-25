@@ -60,6 +60,7 @@ color: rgb(255, 255, 255);
 }
 h1,h2,h3,h4{
   color: white;
+  padding-left: 5px;
   
 }
 .share{
@@ -160,10 +161,14 @@ width: 200px;
 a{
   text-decoration: none;
   color: #f77722;
-  border: 1px solid white;
+  
   padding: 5px;
   margin-bottom: 5px;
   padding-left: 7px;
+}
+
+.user{
+  text-align: center;
 }
 
 .movie , .music , .book{
@@ -204,25 +209,4 @@ a{
   background-color: gray;
   margin-left: 20%;
   margin-top: 20%;
-}
-
-/* NBA*/
-
-#logoNba{
-  display: inline
-}
-#allen,#allensub{
-  display:inline;
-
-}
-
-#allenSubmitButton{
-  background-image: url('img/aibutton.jpg');
-  background-size: 100px 28px;
-  width:100px;
-  height: 28px;
-  
-}
-#logobball{
-  display:inline;
 }

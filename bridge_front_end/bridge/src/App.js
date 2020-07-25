@@ -61,9 +61,9 @@ handleLogin = (event) => {
   }).then(data => {
       // this.props.addUser(data);
       this.setState({
-           username: data.username,
-           LoginUsername: '',
-           LoginPassword: ''
+          username: data.username,
+          LoginUsername: '',
+          LoginPassword: ''
       });
   }).catch(err => {
     console.log(err);
@@ -111,7 +111,12 @@ handleSignUp = (event) => {
   })
 }
 
+handleLogout = () => {
 
+  this.setState({
+      username:null
+  });
+}
 
 render () {
 
@@ -121,7 +126,7 @@ render () {
         {
           this.state.username ? 
         <>
-        <Navbar />
+        <Navbar handleLogout={this.handleLogout} />
         <Switch>  
           
           

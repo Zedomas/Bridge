@@ -10,7 +10,7 @@ export default class Welcome extends Component {
     render() {
         return (
             <div>
-                <h1>Welcome {this.props.username}</h1>
+                <h1 className='user'>Welcome {this.props.username}</h1>
                 <div className='logo'>
                     <div className='imgDiv'>
                     <Link  to='/movies'>
