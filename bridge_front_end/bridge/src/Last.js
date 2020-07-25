@@ -29,8 +29,10 @@ export default function Last(){
        
        axios.get(base_URL)
        .then(({ data }) => {
-         setScores(data);
+        render( <div>return setScores(data);
          console.log(data)
+         </div>
+        )
        })
        .catch((err) => {
          console.log(err)
@@ -61,7 +63,7 @@ export default function Last(){
                     <h4 id= 'logoNba' className="card-title"><img src={espn2} width='100' height= '70'  alt="basket" />{""}<strong></strong></h4>
                     <h4 id= 'logoNba' className="card-title"><img src={espn3} width='100' height= '70'  alt="basket" />{""}<strong></strong></h4><br/><br/>
 
-                    <form >onSubmit={  useEffect() }>
+                    <form onSubmit={  useEffect }>
                   <input type="text" id="allensub" placeholder="NBA Team" width='200'
                       value={scores.home_team}
                     //  onChange={ (evt) => handleChange(evt) }
