@@ -5,6 +5,7 @@ import Books from './components/Books.jsx'
 import Music from './components/Music.jsx'
 import Navbar from './components/Navbar.jsx'
 import Welcome from './components/Welcome.jsx'
+import Last from './Last.js'
 
 
 
@@ -60,9 +61,9 @@ handleLogin = (event) => {
   }).then(data => {
       // this.props.addUser(data);
       this.setState({
-           username: data.username,
-           LoginUsername: '',
-           LoginPassword: ''
+          username: data.username,
+          LoginUsername: '',
+          LoginPassword: ''
       });
   }).catch(err => {
     console.log(err);
@@ -111,6 +112,7 @@ handleSignUp = (event) => {
 }
 
 handleLogout = () => {
+
   this.setState({
       username:null
   });
@@ -135,7 +137,7 @@ render () {
 
         } />
 
-          {/* <Route exact path='/lastdance' component={Last}/> */}
+          { <Route exact path='/lastdance' component={Last}/> }
 
           <Route exact path='/movies' render={()=><Movie 
           user={this.state.username}
