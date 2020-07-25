@@ -110,7 +110,11 @@ handleSignUp = (event) => {
   })
 }
 
-
+handleLogout = () => {
+  this.setState({
+      username:null
+  });
+}
 
 render () {
 
@@ -120,7 +124,7 @@ render () {
         {
           this.state.username ? 
         <>
-        <Navbar />
+        <Navbar handleLogout={this.handleLogout} />
         <Switch>  
           
           
