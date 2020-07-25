@@ -51,7 +51,7 @@ input[type="text"],input[type="submit"],[type="password"]{
   height: 100%;
   padding-right: 5px;
   padding-left: 5px;
-  font-family: 'Gloria Hallelujah', cursive;
+  
 
 }
 .nav-link:hover{
@@ -60,7 +60,7 @@ color: rgb(255, 255, 255);
 }
 h1,h2,h3,h4{
   color: white;
-  font-family: 'Gloria Hallelujah', cursive;
+  
 }
 .share{
   text-align: center;
@@ -139,21 +139,44 @@ input[type="email"]{
 height: 250px;
 width: 200px;
 }
-.movies{
+.movies,.musics {
   display: grid;
   grid-template-columns: repeat(3,1fr);
 }
+.musicsPreview {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  background-color: rgb(100, 81, 81);
+} 
+.musicPreview {
+  border: 1px solid rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+}
 
-.movie{
+a{
+  text-decoration: none;
+  color: #f77722;
+  border: 1px solid white;
+  padding: 5px;
+  margin-bottom: 5px;
+  padding-left: 7px;
+}
+
+.movie , .music {
   width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 1px solid white;
   margin: 20px;
+  background-color: rgb(100, 81, 81);
   
 }
-.searchMovie{
+.searchMovie , .searchMusic{
   display: flex;
   align-items:center;
   justify-content: center;
@@ -163,7 +186,7 @@ width: 200px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(100, 81, 81);
+  background-color: rgb(0, 0, 0);
   padding: 10px;
 }
 .previewImg{
