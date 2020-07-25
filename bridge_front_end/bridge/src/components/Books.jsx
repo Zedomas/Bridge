@@ -21,6 +21,7 @@ export default class componentName extends Component {
     }
   }
 
+  
   // setup function for handling text entry box
   handleChange(evt) {
     this.setState({
