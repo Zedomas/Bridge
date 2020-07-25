@@ -139,7 +139,7 @@ input[type="email"]{
 height: 250px;
 width: 200px;
 }
-.movies,.musics {
+.movies,.musics ,.book-grid{
   display: grid;
   grid-template-columns: repeat(3,1fr);
 }
@@ -166,7 +166,7 @@ a{
   padding-left: 7px;
 }
 
-.movie , .music {
+.movie , .music , .book{
   width: 300px;
   display: flex;
   flex-direction: column;
