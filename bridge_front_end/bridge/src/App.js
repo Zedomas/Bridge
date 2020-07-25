@@ -5,6 +5,7 @@ import Books from './components/Books.jsx'
 import Music from './components/Music.jsx'
 import Navbar from './components/Navbar.jsx'
 import Welcome from './components/Welcome.jsx'
+import Last from './Last.js'
 
 
 
@@ -131,7 +132,7 @@ render () {
 
         } />
 
-          {/* <Route exact path='/lastdance' component={Last}/> */}
+          { <Route exact path='/lastdance' component={Last}/> }
 
           <Route exact path='/movies' render={()=><Movie 
           user={this.state.username}

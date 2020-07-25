@@ -182,3 +182,24 @@ width: 200px;
   margin-left: 20%;
   margin-top: 20%;
 }
+
+/* NBA*/
+
+#logoNba{
+  display: inline
+}
+#allen,#allensub{
+  display:inline;
+
+}
+
+#allenSubmitButton{
+  background-image: url('img/aibutton.jpg');
+  background-size: 100px 28px;
+  width:100px;
+  height: 28px;
+  
+}
+#logobball{
+  display:inline;
+}

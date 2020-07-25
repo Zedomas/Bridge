@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
+
+import espn2 from './img/espn-nba-logo.png'
+import espn3 from './img/nba-countdown.jpg'
+import teamlogo from './img/team_logo.jpg'
+import allen from './img/aibutton.jpg'
+import bryant from './img/bryant.jpg'
+import fantasy from './img/fantasy.jpg'
+import jordan from './img/jordam.jpeg'
+import kobe from './img/kobe-logo.png'
 //import Header from '/component/header'
 //import './App.css';
 
@@ -42,8 +51,26 @@ export default function Last(){
             
                   <div className="card-body card-body-cascade text-center">
 
-                    <h4 className="card-title"><img src='https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nba.png&w=100&h=70&transparent=true' alt="basket" />{""}<strong></strong></h4>
-                    <h6 className="font-weight-bold indigo-text py-2">Providing all basket ball Score updates</h6>
+                    <h4 id= 'logobball'className="card-title"><img src='https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nba.png&w=68&h=30&transparent=true' alt="basket" />{""}<strong></strong></h4>
+                    <h4 id= 'logobball' className="card-title"><img src={fantasy} width='68' height= '30'  alt="basket" />{""}<strong></strong></h4>
+                    <h4 id= 'logobball' className="card-title"><img src={bryant} width='68' height= '30'  alt="basket" />{""}<strong></strong></h4>
+                    <h4 id= 'logobball' className="card-title"><img src={jordan} width='68' height= '30'  alt="basket" />{""}<strong></strong></h4> <br/><br/>
+                    <h4 id= 'logoNba' className="card-title"><img src={kobe} width='100' height= '70'  alt="basket" />{""}<strong></strong></h4>
+                    <h4 id= 'logoNba' className="card-title"><img src={espn2} width='100' height= '70'  alt="basket" />{""}<strong></strong></h4>
+                    <h4 id= 'logoNba' className="card-title"><img src={espn3} width='100' height= '70'  alt="basket" />{""}<strong></strong></h4><br/><br/>
+                   
+            <form onClick={ (evt) => this.useEffect(evt) }>
+                  <input type="text" id="allensub" placeholder="NBA Team" width='200'
+                      //value={ this.state.nbaTeam}
+                      // onChange={ (evt) => this.handleChange(evt) }
+                       />
+          <input width='70' height= '30' id='allenSubmitButton' type="submit"/> 
+          </form> 
+                      <br/><br/>
+                   <h4  className="card-title"><img src={teamlogo} width='500' height= '200'  alt="basket" />{""}<strong></strong></h4>
+
+
+
                     {/* table */}
                     <table id="dtBasicExample" className="table table-striped table-bordered table-sm" cellSpacing="0" width="100%">
                         <thead>
