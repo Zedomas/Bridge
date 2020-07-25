@@ -21,7 +21,7 @@ export default class componentName extends Component {
     }
   }
 
-  
+
   // setup function for handling text entry box
   handleChange(evt) {
     this.setState({
@@ -144,7 +144,7 @@ export default class componentName extends Component {
                 return (
                   <div key = {book._id} className = 'book'>
                     <h2>{book.title}</h2>
-                    <img className='bookImg' src={book.image} />
+                    <img className='bookImg' src={book.image} alt={book.title}/>
                     <h3>Author: {book.author}</h3>
                     <h3>Published Year: {book.publishedDate}</h3>
                   </div>
