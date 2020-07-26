@@ -119,7 +119,7 @@ render () {
 
       <div >
         {
-          this.state.username ? 
+          //this.state.username ? 
         <>
         <Navbar />
         <Switch>  
@@ -147,7 +147,7 @@ render () {
           />}/>
         </Switch>
         </>
-    : 
+    /*: 
     
     <Login 
     handleSignUp={this.handleSignUp}
@@ -159,7 +159,7 @@ render () {
     NewUsername = {this.state.NewUsername}
     NewPassword = {this.state.NewPassword}
     email = {this.state.email}
-    />     
+    />     */
     }  
       </div>
 

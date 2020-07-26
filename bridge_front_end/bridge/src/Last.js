@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useForm } from 'react';
+import React, { useState, useEffect, } from 'react';
+import Slide from './components/slides/Slide.jsx'
 import axios from "axios";
-
-
+import ReactDOM from 'react-dom'
 import espn2 from './img/espn-nba-logo.png'
 import espn3 from './img/nba-countdown.jpg'
 import teamlogo from './img/team_logo.jpg'
@@ -11,20 +11,21 @@ import fantasy from './img/fantasy.jpg'
 import jordan from './img/jordam.jpeg'
 import kobe from './img/kobe-logo.png'
 //import Header from '/component/header'
-//import './App.css';
+
 
 export default function Last(){
   let [scores, setScores] = useState([]);
+ 
 
   let base_URL = `http://localhost:3003/api/v1/updates`;
-
-  /*let handleChange=(evt)=>{
-    setState({
-      nbaTeam: evt.target.value,
-    })
-  }*/
+  //let handleChange = (event)=>{
+  //  setScores(event.target.value)
+  //}
 
 
+
+
+  
   useEffect(() => {
        
     axios.get(base_URL)
@@ -37,8 +38,11 @@ export default function Last(){
     })
 }, [])
 
+ 
 
  
+
+
 
   return (
     <>
@@ -57,14 +61,19 @@ export default function Last(){
                     <h4 id= 'logobball' className="card-title"><img src={fantasy} width='68' height= '30'  alt="basket" />{""}<strong></strong></h4>
                     <h4 id= 'logobball' className="card-title"><img src={bryant} width='68' height= '30'  alt="basket" />{""}<strong></strong></h4>
                     <h4 id= 'logobball' className="card-title"><img src={jordan} width='68' height= '30'  alt="basket" />{""}<strong></strong></h4> <br/><br/>
-                    <h4 id= 'logoNba' className="card-title"><img src={kobe} width='100' height= '70'  alt="basket" />{""}<strong></strong></h4>
+                  <Slide />
+                  
+                    
+                    
+            
+                    {/* <h4 id= 'logoNba' className="card-title"><img src={kobe} width='100' height= '70'  alt="basket" />{""}<strong></strong></h4>
                     <h4 id= 'logoNba' className="card-title"><img src={espn2} width='100' height= '70'  alt="basket" />{""}<strong></strong></h4>
-                    <h4 id= 'logoNba' className="card-title"><img src={espn3} width='100' height= '70'  alt="basket" />{""}<strong></strong></h4><br/><br/>
+                    <h4 id= 'logoNba' className="card-title"><img src={espn3} width='100' height= '70'  alt="basket" />{""}<strong></strong></h4><br/><br/> */}
 
-                    <form onSubmit={  useEffect }>
+                    <form >
                   <input type="text" id="allensub" placeholder="NBA Team" width='200'
                       value={scores.home_team}
-                    //  onChange={ (evt) => handleChange(evt) }
+                   
                        />
           <input width='70' height= '30' id='allenSubmitButton' type="submit"/> 
           </form> 
@@ -78,7 +87,7 @@ export default function Last(){
                    
           
 
-            {scores.home_team ?
+            {//setScores  ? 
 
                     
                     <table id="dtBasicExample" className="table table-striped table-bordered table-sm" cellSpacing="0" width="100%">
@@ -97,6 +106,7 @@ export default function Last(){
                             </th>
                             <th>Season
                             </th>
+                            <th>View</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -110,9 +120,15 @@ export default function Last(){
                                   <td>{score.visitor_team_score}</td>
                                   <td>{score.status}</td>
                                   <td>{score.season}</td>
+                                  <td>  
+                                    <div id='allenSubmitButton'>
+                                     
+                                       <a href='http://localhost:3003/lastdance/post'><button id= 'allenSubmitButton'></button></a>
+                                    </div>
+                                  </td>
                                 </tr>
                               ))
-                          }
+                              }
                         </tbody>
                         <tfoot>
                           <tr>
@@ -130,10 +146,14 @@ export default function Last(){
                             </th>
                             <th>Season
                             </th>
+                            <th>
+                                View
+                                </th>
                           </tr>
                         </tfoot>
                       </table>
-                    : ''}
+                   // : ''
+                  }
               
                   </div>
                 </div>
@@ -145,3 +165,4 @@ export default function Last(){
     </>
   );
 }
+
