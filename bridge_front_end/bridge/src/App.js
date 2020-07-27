@@ -6,9 +6,13 @@ import Music from './components/Music.jsx'
 import Navbar from './components/Navbar.jsx'
 import Welcome from './components/Welcome.jsx'
 import Last from './Last.js'
-
-
-
+import Game1 from './components/Highlights/Game1.jsx'
+import Game2 from './components/Highlights/Game2.jsx'
+import Game3 from './components/Highlights/Game3.jsx'
+import Game4 from './components/Highlights/Game4.jsx'
+import Game5 from './components/Highlights/Game5.jsx'
+import Game6 from './components/Highlights/Game6.jsx'
+import Game7 from './components/Highlights/Game7.jsx'
 import './App.css';
 import { Switch , Route} from 'react-router-dom'
 
@@ -119,20 +123,23 @@ render () {
 
       <div >
         {
-          //this.state.username ? 
+          this.state.username ? 
         <>
         <Navbar />
         <Switch>  
-          
-          
-          <Route exact path='/' 
-          render={ () =>
-          <Welcome  username = {this.state.username}
+           <Route exact path='/' render={ () =>
+             <Welcome  username = {this.state.username}
             />
+             } />
 
-        } />
-
-          { <Route exact path='/lastdance' component={Last}/> }
+          { <Route exact path='/highlight' component={Last}/> }
+          { <Route exact path='/highlightgame1' component={Game1}/> }
+          { <Route exact path='/highlightgame2' component={Game2}/> }
+          { <Route exact path='/highlightgame3' component={Game3}/> }
+          { <Route exact path='/highlightgame4' component={Game4}/> }
+          { <Route exact path='/highlightgame5' component={Game5}/> }
+          { <Route exact path='/highlightgame6' component={Game6}/> }
+            { <Route exact path='/highlightgame7' component={Game7}/> }
 
           <Route exact path='/movies' render={()=><Movie 
           user={this.state.username}
@@ -147,7 +154,7 @@ render () {
           />}/>
         </Switch>
         </>
-    /*: 
+    : 
     
     <Login 
     handleSignUp={this.handleSignUp}
@@ -159,7 +166,7 @@ render () {
     NewUsername = {this.state.NewUsername}
     NewPassword = {this.state.NewPassword}
     email = {this.state.email}
-    />     */
+    />     
     }  
       </div>
 
