@@ -10,7 +10,7 @@ export default function Navbar(props) {
             <Link className='nav-link' to='/books'>Books</Link>
             <Link onClick={()=> props.handleLogout()} className='nav-link' to='/'>Log-Out</Link>
             <form>
-            <Link className='nav-link'  onClick={()=> props.delete()} >Delete User</Link>   
+            <Link className='nav-link' onClick={(event)=> props.delete(event)} >Delete User</Link>   
             </form>
             
         </div>

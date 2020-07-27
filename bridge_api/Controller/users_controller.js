@@ -26,6 +26,7 @@ users.post('/login', (req, res) => {
 
 users.delete('/delete', (req, res) => {
   User.findOne({username: req.body.username}, (err, foundUser) => {
+    console.log(foundUser)
     User.findByIdAndDelete(foundUser.id, (err, data) => {
       
   })
