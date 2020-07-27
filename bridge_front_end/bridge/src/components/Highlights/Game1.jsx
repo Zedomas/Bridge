@@ -37,13 +37,13 @@ export default function Last(){
                   <Slide />
                
             </div>
-                 <h4> Boston Celtics (126) vs. Charlotte Hornets (94)</h4>
+                 <h4 className='stat'>  Boston Celtics (126) vs. Charlotte Hornets (94)</h4>
                     
             <div>
-                <iframe width="460" height="215" src="https://www.youtube.com/embed/PykXlpDEres?autoplay=1 " frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="460" height="215" src="https://www.youtube.com/embed/PykXlpDEres?autoplay=1 " allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
              </div>    
             
-             <a href='/highlight'><button id= 'allenSubmitButton'></button></a>
+             <a href='/highlight'><button id= 'allenSubmitButton' className= 'iframe'></button></a>
 
 
 
