@@ -74,6 +74,29 @@ handleLogin = (event) => {
 });
 }
 
+delete = (event) => {
+  event.preventDefault();
+
+  fetch(baseURL + '/users/delete', {
+      method: 'POST',
+      body: JSON.stringify({
+          username: this.state.LoginUsername,
+      }),
+      headers: {
+          'Content-Type': 'application/json',
+      },
+  }).then(res => {
+      return res.json();
+  }).then(data => {
+    console.log(data)
+      this.setState({
+          username: null,
+      });
+  }).catch(err => {
+    console.log(err);
+});
+}
+
 handleSignUp = (event) => {
   event.preventDefault();
   fetch(baseURL + '/users/signup', {
@@ -129,7 +152,8 @@ render () {
         {
           this.state.username ? 
         <>
-        <Navbar handleLogout={this.handleLogout} />
+        <Navbar handleLogout={this.handleLogout} 
+          delete={this.delete}/>
         <Switch>  
           
           
