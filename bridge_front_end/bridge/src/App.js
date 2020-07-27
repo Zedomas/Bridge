@@ -78,9 +78,9 @@ delete = (event) => {
   event.preventDefault();
 
   fetch(baseURL + '/users/delete', {
-      method: 'POST',
+      method: 'DELETE',
       body: JSON.stringify({
-          username: this.state.LoginUsername,
+          username: this.state.username,
       }),
       headers: {
           'Content-Type': 'application/json',
@@ -168,7 +168,7 @@ render () {
         } />
 
           <Route exact path='/highlight' component={Last}/> 
-           <Route exact path='/highlightgame1' component={Game1}/> 
+          <Route exact path='/highlightgame1' component={Game1}/> 
           <Route exact path='/highlightgame2' component={Game2}/> 
           <Route exact path='/highlightgame3' component={Game3}/> 
            <Route exact path='/highlightgame4' component={Game4}/> 
