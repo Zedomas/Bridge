@@ -13,6 +13,7 @@ import Game4 from './components/Highlights/Game4.jsx'
 import Game5 from './components/Highlights/Game5.jsx'
 import Game6 from './components/Highlights/Game6.jsx'
 import Game7 from './components/Highlights/Game7.jsx'
+
 import './App.css';
 import { Switch , Route} from 'react-router-dom'
 
@@ -132,14 +133,14 @@ render () {
             />
              } />
 
-          { <Route exact path='/highlight' component={Last}/> }
-          { <Route exact path='/highlightgame1' component={Game1}/> }
-          { <Route exact path='/highlightgame2' component={Game2}/> }
-          { <Route exact path='/highlightgame3' component={Game3}/> }
-          { <Route exact path='/highlightgame4' component={Game4}/> }
-          { <Route exact path='/highlightgame5' component={Game5}/> }
-          { <Route exact path='/highlightgame6' component={Game6}/> }
-            { <Route exact path='/highlightgame7' component={Game7}/> }
+           <Route exact path='/highlight' component={Last}/> 
+           <Route exact path='/highlightgame1' component={Game1}/> 
+          <Route exact path='/highlightgame2' component={Game2}/> 
+          <Route exact path='/highlightgame3' component={Game3}/> 
+         <Route exact path='/highlightgame4' component={Game4}/> 
+          <Route exact path='/highlightgame5' component={Game5}/> 
+           <Route exact path='/highlightgame6' component={Game6}/> 
+            <Route exact path='/highlightgame7' component={Game7}/> 
 
           <Route exact path='/movies' render={()=><Movie 
           user={this.state.username}
