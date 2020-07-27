@@ -4,10 +4,79 @@ body{
 }
 .log-inPage{
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  margin: 0;
 }
+.first-page{
+  background-image: url(http://marcbell.com/wp-content/uploads/satellite-entertainment.png);
+  background-repeat: no-repeat;
+  background-size: 400px;
+  background-position-x: center;
+  background-position-y: 50px;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0.3; 
+}
+.headerFirst{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.log-in{
+  border-radius: 10px;
+}
+
+.first-grid{
+ 
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  margin-top: -300px;
+  justify-content: center; 
+  align-items: center;
+}
+
+.grid{
+  background-color: rgb(100, 81, 81);
+  margin-right: 150px;
+  margin-left: 150px;
+  margin-bottom: 50px;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.first-lo{
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+
+h5{
+  color: white;
+  margin-top: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 input[type="text"],input[type="submit"],[type="password"]{
   margin: 10px;
@@ -58,11 +127,19 @@ input[type="text"],input[type="submit"],[type="password"]{
 background-color:#f77722;
 color: rgb(255, 255, 255);
 }
-h1,h2,h3,h4{
+h1,h2,h3{
   color: white;
   padding-left: 5px;
-  
+  text-align: center;
 }
+
+h4{
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+
+
 .share{
   text-align: center;
 }
@@ -181,7 +258,7 @@ a{
   background-color: rgb(100, 81, 81);
   
 }
-.searchMovie , .searchMusic{
+.searchMovie , .searchMusic , .searchBook{
   display: flex;
   align-items:center;
   justify-content: center;
@@ -292,3 +369,27 @@ animation-direction: alternate;
 }
 
 
+@media only screen and (max-width : 700px){
+
+  .movies,.musics ,.book-grid{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .imgDiv{
+    width: 50px;
+    height: 50px;
+  }
+  .welcomeN{
+    width: 100%;
+    height: 100%;
+  }
+  .musicsPreview{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+ 
+}
