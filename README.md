@@ -31,4 +31,10 @@ full-stack single-page application built by:
 ## Future Development
 * user will be able to like and put comments 
 
+## Known Buggs
+* arrows need to be removed in NBA Page
+* if wrong info for log in is entered the server breaks
+* users in state instead of sessions needs moved over to sessions
+* unhandled error messages from server backend routes occasionally
+
 
