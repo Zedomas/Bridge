@@ -23,13 +23,12 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      username: null,
       LoginUsername: '',
       LoginPassword: '',
       NewUsername: '',
       NewPassword: '',
       email: '', 
-
+      username: ''
     }
   }
 
@@ -65,9 +64,9 @@ handleLogin = (event) => {
   }).then(data => {
       // this.props.addUser(data);
       this.setState({
-           username: data.username,
-           LoginUsername: '',
-           LoginPassword: ''
+          username: data.username,
+          LoginUsername: '',
+          LoginPassword: ''
       });
   }).catch(err => {
     console.log(err);
@@ -115,7 +114,12 @@ handleSignUp = (event) => {
   })
 }
 
+handleLogout = () => {
 
+  this.setState({
+      username:null
+  });
+}
 
 render () {
 
@@ -125,11 +129,12 @@ render () {
         {
           this.state.username ? 
         <>
-        <Navbar />
+        <Navbar handleLogout={this.handleLogout} />
         <Switch>  
            <Route exact path='/' render={ () =>
              <Welcome  username = {this.state.username}
             />
+
              } />
 
           { <Route exact path='/highlight' component={Last}/> }
@@ -139,18 +144,26 @@ render () {
           { <Route exact path='/highlightgame4' component={Game4}/> }
           { <Route exact path='/highlightgame5' component={Game5}/> }
           { <Route exact path='/highlightgame6' component={Game6}/> }
-            { <Route exact path='/highlightgame7' component={Game7}/> }
+
+
+        } />
+
+          { <Route exact path='/lastdance' render={()=><Last 
+          username={this.state.username}
+
+          />}/> }
+
 
           <Route exact path='/movies' render={()=><Movie 
-          user={this.state.username}
+          username={this.state.username}
 
           />}/>
           <Route exact path='/music' render={() => <Music 
-          user={this.state.username}
+          username={this.state.username}
           />}/>
           
           <Route exact path='/books' render={() => <Books 
-          user={this.state.username}
+          username={this.state.username}
           />}/>
         </Switch>
         </>

@@ -5,6 +5,7 @@ let serverURL = process.env.serverURL || 'http://localhost:3003'
 // set variable to the .env hidden key
 const api_book_key = process.env.api_book_key
 
+
 export default class componentName extends Component {
 
   constructor(props) {
@@ -19,6 +20,7 @@ export default class componentName extends Component {
       booklist: []
     }
   }
+
 
   // setup function for handling text entry box
   handleChange(evt) {
@@ -57,11 +59,11 @@ export default class componentName extends Component {
           'Content-Type': 'application/json',
       },
       }).then(res => {
-      return res.json();
+      return res.json()
       }).then(data => {
-      this.setState({book:null});
-      this.updateBooks()
-    });
+      this.setState({book:null})
+      this.updateBooks(data)
+    })
   }
 
   updateBooks = (newBook) => {
@@ -70,6 +72,7 @@ export default class componentName extends Component {
     this.setState({
       booklist: copyBooks,
     })
+    console.log(this.state.booklist)
   }
 
   // function for the submit button to pull data from the books api
@@ -135,18 +138,20 @@ export default class componentName extends Component {
           </div> 
             : ''
         }
-          {/* <div className = "book-grid">
+          <div className = "book-grid">
             {
-              console.log(this.state.booklist)
               this.state.booklist.map(book => {
                 return (
-                  <div className = 'book'>
-                    <h2>{}</h2>
+                  <div key = {book._id} className = 'book'>
+                    <h2>{book.title}</h2>
+                    <img className='bookImg' src={book.image} alt={book.title}/>
+                    <h3>Author: {book.author}</h3>
+                    <h3>Published Year: {book.publishedDate}</h3>
                   </div>
                 )
               })
             }
-          </div> */}
+          </div>
         </>
     )
   }
