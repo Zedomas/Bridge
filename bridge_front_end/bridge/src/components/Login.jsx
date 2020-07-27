@@ -81,23 +81,22 @@ export default class Login extends Component {
                     </div>
                     <div className='grid'>
                         <img className='first-lo' src={logoMu}></img>
-                        <h5> looking for a good movie?<br></br>
-                    check out our list of users's favorite movies 
-                    Don't forget<br></br> to share you favorite movies with others 
+                        <h5> listen to the latest song's preview <br></br>
+                    search and share you favorite music with others
+                    <br></br> explore the favorite lists
                     </h5>
                     </div>
                     <div className='grid'>
                         <img className='first-lo' src={logoB}></img>
-                        <h5> looking for a good movie?<br></br>
-                    check out our list of users's favorite movies 
-                    Don't forget<br></br> to share you favorite movies with others 
+                        <h5> Explore and read the summary of the next book you want to read
+                    find and share your favorite books with community
                     </h5>
                     </div>
                     <div className='grid'>
                         <img className='first-lo' src={logoV}></img>
-                        <h5> looking for a good movie?<br></br>
-                    check out our list of users's favorite movies 
-                    Don't forget<br></br> to share you favorite movies with others 
+                        <h5> do you wan to know the latest NBA game result?<br></br>
+                    check out our Hoops page and only search your team name
+                   
                     </h5>
                     </div>
                 </div>
