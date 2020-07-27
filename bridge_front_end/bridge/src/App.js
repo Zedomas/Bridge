@@ -19,13 +19,12 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      username: null,
       LoginUsername: '',
       LoginPassword: '',
       NewUsername: '',
       NewPassword: '',
       email: '', 
-
+      username: ''
     }
   }
 
@@ -137,18 +136,21 @@ render () {
 
         } />
 
-          { <Route exact path='/lastdance' component={Last}/> }
+          { <Route exact path='/lastdance' render={()=><Last 
+          username={this.state.username}
+
+          />}/> }
 
           <Route exact path='/movies' render={()=><Movie 
-          user={this.state.username}
+          username={this.state.username}
 
           />}/>
           <Route exact path='/music' render={() => <Music 
-          user={this.state.username}
+          username={this.state.username}
           />}/>
           
           <Route exact path='/books' render={() => <Books 
-          user={this.state.username}
+          username={this.state.username}
           />}/>
         </Switch>
         </>

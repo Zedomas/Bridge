@@ -113,6 +113,7 @@ export default class componentName extends Component {
                         return (
                         <div className='musicPreview'>
                         <h3>{song.title} by {song.artist.name} </h3> 
+                        <img  src={song.album.cover} alt=""/>
                         <a href="#" onClick={(event) => this.addSong(event, song)}> Add Song</a> </div>
                         )
                     })
