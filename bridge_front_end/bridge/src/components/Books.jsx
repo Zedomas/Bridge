@@ -107,13 +107,14 @@ export default class componentName extends Component {
     return (
       <>
         {/* form for looking up books from the google books api */}
-        <form onSubmit={ (evt) => this.handleSubmit(evt) }>
-          <label htmlFor="bookTitle"> Book Title: </label>
-          <input type="text" id="bookTitle"
+        <div className='searchBook'>
+          <form onSubmit={ (evt) => this.handleSubmit(evt) }>
+            <input type="text" id="bookTitle" placeholder="book's name"
             value={ this.state.bookTitle}
             onChange={ (evt) => this.handleChange(evt) }/>
-          <input type="submit" value="Search"/>
-        </form>
+            <input type="submit" value="Search"/>
+          </form>
+        </div> 
         {/* setting if statemetn for if the state is blank then it'll show the pull from the api and if not it'll show nothing */}
         {
           // takes state from handleSubmit where books is given data from api call and if that exists then it shows the preview window with the book found in the search

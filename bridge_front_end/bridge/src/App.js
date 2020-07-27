@@ -6,13 +6,9 @@ import Music from './components/Music.jsx'
 import Navbar from './components/Navbar.jsx'
 import Welcome from './components/Welcome.jsx'
 import Last from './Last.js'
-import Game1 from './components/Highlights/Game1.jsx'
-import Game2 from './components/Highlights/Game2.jsx'
-import Game3 from './components/Highlights/Game3.jsx'
-import Game4 from './components/Highlights/Game4.jsx'
-import Game5 from './components/Highlights/Game5.jsx'
-import Game6 from './components/Highlights/Game6.jsx'
-import Game7 from './components/Highlights/Game7.jsx'
+
+
+
 import './App.css';
 import { Switch , Route} from 'react-router-dom'
 
@@ -23,12 +19,13 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      username: null,
       LoginUsername: '',
       LoginPassword: '',
       NewUsername: '',
       NewPassword: '',
       email: '', 
-      username: ''
+
     }
   }
 
@@ -115,7 +112,6 @@ handleSignUp = (event) => {
 }
 
 handleLogout = () => {
-
   this.setState({
       username:null
   });
@@ -131,39 +127,27 @@ render () {
         <>
         <Navbar handleLogout={this.handleLogout} />
         <Switch>  
-           <Route exact path='/' render={ () =>
-             <Welcome  username = {this.state.username}
+          
+          
+          <Route exact path='/' 
+          render={ () =>
+          <Welcome  username = {this.state.username}
             />
-
-             } />
-
-          { <Route exact path='/highlight' component={Last}/> }
-          { <Route exact path='/highlightgame1' component={Game1}/> }
-          { <Route exact path='/highlightgame2' component={Game2}/> }
-          { <Route exact path='/highlightgame3' component={Game3}/> }
-          { <Route exact path='/highlightgame4' component={Game4}/> }
-          { <Route exact path='/highlightgame5' component={Game5}/> }
-          { <Route exact path='/highlightgame6' component={Game6}/> }
-
 
         } />
 
-          { <Route exact path='/lastdance' render={()=><Last 
-          username={this.state.username}
-
-          />}/> }
-
+          { <Route exact path='/lastdance' component={Last}/> }
 
           <Route exact path='/movies' render={()=><Movie 
-          username={this.state.username}
+          user={this.state.username}
 
           />}/>
           <Route exact path='/music' render={() => <Music 
-          username={this.state.username}
+          user={this.state.username}
           />}/>
           
           <Route exact path='/books' render={() => <Books 
-          username={this.state.username}
+          user={this.state.username}
           />}/>
         </Switch>
         </>

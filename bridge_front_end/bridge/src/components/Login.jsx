@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import logo from '../img/logo.png'
+import logoM from '../img/logoM.png'
+import logoMu from '../img/logoMu.png'
+import logoB from '../img/logoB.png'
+import logoV from '../img/logoV.png'
 
 import validateCredentials from './Authenticator.jsx'
 
@@ -63,13 +67,41 @@ export default class Login extends Component {
                     </div>
                     
                 </div>
-                <div className="share">
-                    
+                <div className='headerFirst'>
+                    <div className='first-page'>
+                    </div>   
                 </div>
-            
-                <div className="share">
+                <div className='first-grid'>
+                    <div className='grid'>
+                        <img className='first-lo' src={logoM}></img>
+                    <h5> looking for a good movie?<br></br>
+                    check out our list of users's favorite movies 
+                    Don't forget<br></br> to share you favorite movies with others 
+                    </h5>
+                    </div>
+                    <div className='grid'>
+                        <img className='first-lo' src={logoMu}></img>
+                        <h5> looking for a good movie?<br></br>
+                    check out our list of users's favorite movies 
+                    Don't forget<br></br> to share you favorite movies with others 
+                    </h5>
+                    </div>
+                    <div className='grid'>
+                        <img className='first-lo' src={logoB}></img>
+                        <h5> looking for a good movie?<br></br>
+                    check out our list of users's favorite movies 
+                    Don't forget<br></br> to share you favorite movies with others 
+                    </h5>
+                    </div>
+                    <div className='grid'>
+                        <img className='first-lo' src={logoV}></img>
+                        <h5> looking for a good movie?<br></br>
+                    check out our list of users's favorite movies 
+                    Don't forget<br></br> to share you favorite movies with others 
+                    </h5>
+                    </div>
+                </div>
                 
-                </div>
             </div>
         </div>
         )
