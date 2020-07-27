@@ -210,3 +210,85 @@ a{
   margin-left: 20%;
   margin-top: 20%;
 }
+
+
+/* NBA*/
+
+#logoNba{
+  display: inline;
+ 
+}
+#allen,#allensub{
+  display:inline;
+
+}
+
+#allenSubmitButton{
+  background-image: url('img/aibutton.jpg');
+  background-size: 100px 28px;
+  width:100px;
+  height: 28px;
+  
+}
+#logobball{
+  display:inline;
+ 
+}
+
+.carousel,#container {
+	height:200px;
+	margin: 0;
+	width: 200px;
+}
+
+@keyframes image{
+  0% {
+  opacity:1;
+}
+45% {
+opacity:1;
+}
+55% {
+opacity:0;
+}
+100% {
+opacity:0;
+}
+}
+
+
+.image-slide {
+animation-name: image;
+animation-timing-function: ease-in-out;
+animation-iteration-count: infinite;
+animation-duration: 10s;
+animation-direction: alternate;
+}
+
+.image-slide {
+	height: 150px;
+	width: 150px;
+  transition: background-image .3s ease-in-out;
+  margin-left: 160px;
+  border: 5px solid gray;
+  border-radius: 200px;
+  transition-duration: 3000;
+}
+
+.slide-arrow {
+
+	cursor: pointer;
+	font-size: 2rem;
+	position: fixed;
+	top: 50%;
+}
+
+.slide-arrow.right {
+	right: 1rem;
+}
+
+.slide-arrow.left {
+	left: 1rem;
+}
+
+

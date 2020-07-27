@@ -7,11 +7,13 @@ let unirest = require("unirest");
 req = unirest("GET",'https://free-nba.p.rapidapi.com/games');
 req.headers({
     "x-rapidapi-host": 'free-nba.p.rapidapi.com',
-    "x-rapidapi-key": '56329c60admsh194ed4c62c7433ep13b95bjsn5063b035ff93'
+    "x-rapidapi-key": "f1d6245012msh0fadbce02ddbd1dp1cc945jsn892656c3b30b",
 });
 req.end(function (response) {
   if (response.error) throw new Error(response.error);
+ 
   if (response.status == 200) {
+    
       let games = [];
       let dataArray = response.body;
       let allData = dataArray.data;

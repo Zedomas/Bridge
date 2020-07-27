@@ -1,41 +1,59 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, } from 'react';
+import Slide from './components/slides/Slide.jsx'
 import axios from "axios";
-
-import espn2 from './img/espn-nba-logo.png'
-import espn3 from './img/nba-countdown.jpg'
+import ReactDOM from 'react-dom'
 import teamlogo from './img/team_logo.jpg'
 import allen from './img/aibutton.jpg'
 import bryant from './img/bryant.jpg'
 import fantasy from './img/fantasy.jpg'
 import jordan from './img/jordam.jpeg'
-import kobe from './img/kobe-logo.png'
-//import Header from '/component/header'
-//import './App.css';
+import { Link } from 'react-router-dom';
+
+
+
+
+
 
 export default function Last(){
   let [scores, setScores] = useState([]);
+  let highlight= {
+    data:['/highlightgame1','/highlightgame2','/highlightgame3',
+    '/highlightgame4',
+    '/highlightgame5',
+    '/highlightgame6',
+    '/highlightgame7'
+  ]
+  
+  }
 
   let base_URL = `http://localhost:3003/api/v1/updates`;
-
-  /*handleChange=(evt)=>{
-    this.setState({
-      nbaTeam: evt.target.value,
-    })
-  }*/
+  //let handleChange = (event)=>{
+  //  setScores(event.target.value)
+  //}
 
 
+
+
+  
   useEffect(() => {
-      axios.get(base_URL)
-      .then(({ data }) => {
-        setScores(data);
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+
+       
+    axios.get(base_URL)
+    .then(({ data }) => {
+      setScores(data);
+      console.log(data)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+
 }, [])
 
+ 
 
  
+
+
 
   return (
     <>
@@ -50,27 +68,25 @@ export default function Last(){
             
                   <div className="card-body card-body-cascade text-center">
 
-                    <h4 id= 'logobball'className="card-title"><img src='https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nba.png&w=68&h=30&transparent=true' alt="basket" />{""}<strong></strong></h4>
-                    <h4 id= 'logobball' className="card-title"><img src={fantasy} width='68' height= '30'  alt="basket" />{""}<strong></strong></h4>
-                    <h4 id= 'logobball' className="card-title"><img src={bryant} width='68' height= '30'  alt="basket" />{""}<strong></strong></h4>
-                    <h4 id= 'logobball' className="card-title"><img src={jordan} width='68' height= '30'  alt="basket" />{""}<strong></strong></h4> <br/><br/>
-                    <h4 id= 'logoNba' className="card-title"><img src={kobe} width='100' height= '70'  alt="basket" />{""}<strong></strong></h4>
-                    <h4 id= 'logoNba' className="card-title"><img src={espn2} width='100' height= '70'  alt="basket" />{""}<strong></strong></h4>
-                    <h4 id= 'logoNba' className="card-title"><img src={espn3} width='100' height= '70'  alt="basket" />{""}<strong></strong></h4><br/><br/>
-                   
-            <form onClick={ (evt) => this.useEffect(evt) }>
+                    <h4 id= 'logobball'className="card-title"><img src='https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nba.png&w=85&h=48&transparent=true' alt="basket" />{""}<strong></strong></h4>
+                    <br/><br/>
+                  <div className='carouselDiv'>
+                  <Slide />
+                 
+                  </div>
+
+             <form >
                   <input type="text" id="allensub" placeholder="NBA Team" width='200'
-                      //value={ this.state.nbaTeam}
-                      // onChange={ (evt) => this.handleChange(evt) }
+                      value={scores.home_team}
+                   
                        />
-          <input width='70' height= '30' id='allenSubmitButton' type="submit"/> 
-          </form> 
+                  <input width='70' height= '30' id='allenSubmitButton' type="submit"/> 
+            </form> 
                       <br/><br/>
-                   <h4  className="card-title"><img src={teamlogo} width='500' height= '200'  alt="basket" />{""}<strong></strong></h4>
+                   <h4  className="card-title"><img src={teamlogo}      width='500' height= '200'  alt="basket" />{""}<strong></strong></h4>
+            {//setScores  ? 
 
-
-
-                    {/* table */}
+                    
                     <table id="dtBasicExample" className="table table-striped table-bordered table-sm" cellSpacing="0" width="100%">
                         <thead>
                           <tr>
@@ -87,6 +103,7 @@ export default function Last(){
                             </th>
                             <th>Season
                             </th>
+                            <th>View</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -100,39 +117,41 @@ export default function Last(){
                                   <td>{score.visitor_team_score}</td>
                                   <td>{score.status}</td>
                                   <td>{score.season}</td>
+                                  <td> 
+                                {{index} == 0 ?
+                                     <a 
+                                  
+                                  href='highlightgame1'><button                       id= 'allenSubmitButton'></button></a> : {index} == 1 ?
+                                    <a 
+                                  
+                                    href='highlightgame2'><button                       id= 'allenSubmitButton'></button></a> :{index} == 2 ?<a href='highlightgame3'><button                       id= 'allenSubmitButton'></button></a>: <a href='highlightgame4'><button                       id= 'allenSubmitButton'></button></a>
+
+                                  }
+                  
+
+                                    
+                                  </td>
                                 </tr>
                               ))
-                          }
+                              }
+
+                                
+                            
+                                      
                         </tbody>
-                        <tfoot>
-                          <tr>
-                            <th>Date
-                            </th>
-                            <th>Home Team
-                            </th>
-                            <th>Home Team Score
-                            </th>
-                            <th>Visitors Team
-                            </th>
-                            <th>Visitors Team Score
-                            </th>
-                            <th>Status
-                            </th>
-                            <th>Season
-                            </th>
-                          </tr>
-                        </tfoot>
+                
                       </table>
-                    
-                    <a className="px-2 fa-lg li-ic" href="#!"><i className="fab fa-linkedin-in"></i></a>
-                    <a className="px-2 fa-lg tw-ic" href="#!"><i className="fab fa-twitter"></i></a>
-                    <a className="px-2 fa-lg fb-ic" href="#!"><i className="fab fa-facebook-f"></i></a>
+                   // : ''
+                  }
+              
                   </div>
                 </div>
           </div>
       </div>
+    
 
       </main>
     </>
   );
 }
+
