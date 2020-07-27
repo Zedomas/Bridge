@@ -5,6 +5,7 @@ let serverURL = process.env.serverURL || 'http://localhost:3003'
 // set variable to the .env hidden key
 const api_book_key = process.env.api_book_key
 
+
 export default class componentName extends Component {
 
   constructor(props) {
@@ -19,6 +20,7 @@ export default class componentName extends Component {
       booklist: []
     }
   }
+
 
   // setup function for handling text entry box
   handleChange(evt) {
@@ -57,11 +59,11 @@ export default class componentName extends Component {
           'Content-Type': 'application/json',
       },
       }).then(res => {
-      return res.json();
+      return res.json()
       }).then(data => {
-      this.setState({book:null});
-      this.updateBooks()
-    });
+      this.setState({book:null})
+      this.updateBooks(data)
+    })
   }
 
   updateBooks = (newBook) => {
@@ -70,6 +72,7 @@ export default class componentName extends Component {
     this.setState({
       booklist: copyBooks,
     })
+    console.log(this.state.booklist)
   }
 
   // function for the submit button to pull data from the books api
@@ -104,13 +107,14 @@ export default class componentName extends Component {
     return (
       <>
         {/* form for looking up books from the google books api */}
-        <form onSubmit={ (evt) => this.handleSubmit(evt) }>
-          <label htmlFor="bookTitle"> Book Title: </label>
-          <input type="text" id="bookTitle"
+        <div className='searchBook'>
+          <form onSubmit={ (evt) => this.handleSubmit(evt) }>
+            <input type="text" id="bookTitle" placeholder="book's name"
             value={ this.state.bookTitle}
             onChange={ (evt) => this.handleChange(evt) }/>
-          <input type="submit" value="Search"/>
-        </form>
+            <input type="submit" value="Search"/>
+          </form>
+        </div> 
         {/* setting if statemetn for if the state is blank then it'll show the pull from the api and if not it'll show nothing */}
         {
           // takes state from handleSubmit where books is given data from api call and if that exists then it shows the preview window with the book found in the search
@@ -135,18 +139,20 @@ export default class componentName extends Component {
           </div> 
             : ''
         }
-          {/* <div className = "book-grid">
+          <div className = "book-grid">
             {
-              console.log(this.state.booklist)
               this.state.booklist.map(book => {
                 return (
-                  <div className = 'book'>
-                    <h2>{}</h2>
+                  <div key = {book._id} className = 'book'>
+                    <h2>{book.title}</h2>
+                    <img className='bookImg' src={book.image} alt={book.title}/>
+                    <h3>Author: {book.author}</h3>
+                    <h3>Published Year: {book.publishedDate}</h3>
                   </div>
                 )
               })
             }
-          </div> */}
+          </div>
         </>
     )
   }

@@ -25,6 +25,7 @@ export default function Last(){
  
   
   useEffect(() => {
+
        
     axios.get(base_URL)
     .then(({ data }) => {
@@ -34,6 +35,7 @@ export default function Last(){
     .catch((err) => {
       console.log(err)
     })
+
 }, [])
 
 

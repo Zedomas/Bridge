@@ -13,7 +13,6 @@ import Game4 from './components/Highlights/Game4.jsx'
 import Game5 from './components/Highlights/Game5.jsx'
 import Game6 from './components/Highlights/Game6.jsx'
 import Game7 from './components/Highlights/Game7.jsx'
-
 import './App.css';
 import { Switch , Route} from 'react-router-dom'
 
@@ -66,9 +65,9 @@ handleLogin = (event) => {
   }).then(data => {
       // this.props.addUser(data);
       this.setState({
-           username: data.username,
-           LoginUsername: '',
-           LoginPassword: ''
+          username: data.username,
+          LoginUsername: '',
+          LoginPassword: ''
       });
   }).catch(err => {
     console.log(err);
@@ -116,7 +115,11 @@ handleSignUp = (event) => {
   })
 }
 
-
+handleLogout = () => {
+  this.setState({
+      username:null
+  });
+}
 
 render () {
 
@@ -126,21 +129,30 @@ render () {
         {
           this.state.username ? 
         <>
-        <Navbar />
+        <Navbar handleLogout={this.handleLogout} />
         <Switch>  
-           <Route exact path='/' render={ () =>
-             <Welcome  username = {this.state.username}
+          
+          
+          <Route exact path='/' 
+          render={ () =>
+          <Welcome  username = {this.state.username}
             />
              } />
 
-           <Route exact path='/highlight' component={Last}/> 
+          
+
+        } />
+
+          <Route exact path='/highlight' component={Last}/> 
            <Route exact path='/highlightgame1' component={Game1}/> 
           <Route exact path='/highlightgame2' component={Game2}/> 
           <Route exact path='/highlightgame3' component={Game3}/> 
-         <Route exact path='/highlightgame4' component={Game4}/> 
+           <Route exact path='/highlightgame4' component={Game4}/> 
           <Route exact path='/highlightgame5' component={Game5}/> 
            <Route exact path='/highlightgame6' component={Game6}/> 
             <Route exact path='/highlightgame7' component={Game7}/> 
+
+          { <Route exact path='/lastdance' component={Last}/> }
 
           <Route exact path='/movies' render={()=><Movie 
           user={this.state.username}

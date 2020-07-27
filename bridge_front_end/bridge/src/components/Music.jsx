@@ -96,41 +96,44 @@ export default class componentName extends Component {
     render() {
         return (
         <>
+            <div className='searchMusic'>
             <form onSubmit={ (evt) => this.handleSubmit(evt) }>
-                <label htmlFor="songTitle">Music Title: </label>
-                <input type="text" id="songTitle"
+                <input type="text" id="songTitle" placeholder='artist,song,album'
                 value={ this.state.songTitle}
                 onChange={ (evt) => this.handleChange(evt) }/>
                 <input type="submit" value="Search"/>
             </form>
+            </div>
             {
                 this.state.results ? 
                 <div>
-                <ul>
+                <div className='musicsPreview' >
                 {
                     this.state.results.map(song => {
                         return (
-                        <li>{song.title} by {song.artist.name} 
-                        <a href="#" onClick={(event) => this.addSong(event, song)}> Add Song</a> </li>
+                        <div className='musicPreview'>
+                        <h3>{song.title} by {song.artist.name} </h3> 
+                        <img  src={song.album.cover} alt=""/>
+                        <a href="#" onClick={(event) => this.addSong(event, song)}> Add Song</a> </div>
                         )
                     })
                 }   
-                </ul>
+                </div>
                 <button onClick={(event) => this.clear(event)}>Clear Results</button>
                 </div> 
                 : ''
             }
 
-            <div>
+            <div className="musics">
             {
                 this.state.songs.map(song => {
                 return (
-                    <div>
+                    <div className='music'>
                     <h2>{song.artist}</h2>
                     <img src={song.albumCover} />
                     <h3>Song: {song.track}</h3>
                     <h3>Album: {song.album}</h3>
-                    <h4>Preview: {song.preview}</h4> 
+                    <a href={song.preview}>&#9658;</a> 
                     </div>
                 )
                 })
