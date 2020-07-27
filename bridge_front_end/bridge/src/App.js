@@ -1,10 +1,13 @@
 import React from 'react';
 import Login from './components/Login.jsx'
-import Welcome from './components/Welcome.jsx'
 import Movie from './components/Movie.jsx'
 import Books from './components/Books.jsx'
 import Music from './components/Music.jsx'
 import Navbar from './components/Navbar.jsx'
+import Welcome from './components/Welcome.jsx'
+import Last from './Last.js'
+
+
 
 import './App.css';
 import { Switch , Route} from 'react-router-dom'
@@ -57,11 +60,13 @@ handleLogin = (event) => {
   }).then(data => {
       // this.props.addUser(data);
       this.setState({
-           username: data.username,
-           LoginUsername: '',
-           LoginPassword: ''
+          username: data.username,
+          LoginUsername: '',
+          LoginPassword: ''
       });
-  });
+  }).catch(err => {
+    console.log(err);
+});
 }
 
 handleSignUp = (event) => {
@@ -105,42 +110,64 @@ handleSignUp = (event) => {
   })
 }
 
+handleLogout = () => {
 
+  this.setState({
+      username:null
+  });
+}
 
 render () {
 
     return (
 
-      <div> 
-        <Navbar />
-
-        <Switch>
-
+      <div >
+        {
+          this.state.username ? 
+        <>
+        <Navbar handleLogout={this.handleLogout} />
+        <Switch>  
+          
+          
           <Route exact path='/' 
-              render={ () => 
-              <Login 
-                handleSignUp={this.handleSignUp}
-                handleLogin={this.handleLogin}
-                handleChange={this.handleChange}
-                username = {this.state.username}
-                LoginUsername = {this.state.LoginUsername}
-                LoginPassword = {this.state.LoginPassword}
-                NewUsername = {this.state.NewUsername}
-                NewPassword = {this.state.NewPassword}
-                email = {this.state.email}
-                /> 
-              }
-          />
+          render={ () =>
+          <Welcome  username = {this.state.username}
+            />
+
+        } />
+
+          { <Route exact path='/lastdance' render={()=><Last 
+          username={this.state.username}
+
+          />}/> }
+
           <Route exact path='/movies' render={()=><Movie 
-          user={this.state.username}
+          username={this.state.username}
 
           />}/>
           <Route exact path='/music' render={() => <Music 
-          user={this.state.username}
+          username={this.state.username}
           />}/>
-
+          
+          <Route exact path='/books' render={() => <Books 
+          username={this.state.username}
+          />}/>
         </Switch>
-      
+        </>
+    : 
+    
+    <Login 
+    handleSignUp={this.handleSignUp}
+    handleLogin={this.handleLogin}
+    handleChange={this.handleChange}
+    username = {this.state.username}
+    LoginUsername = {this.state.LoginUsername}
+    LoginPassword = {this.state.LoginPassword}
+    NewUsername = {this.state.NewUsername}
+    NewPassword = {this.state.NewPassword}
+    email = {this.state.email}
+    />     
+    }  
       </div>
 
 
