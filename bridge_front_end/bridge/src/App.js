@@ -1,5 +1,6 @@
 import React from 'react';
 import Login from './components/Login.jsx'
+import Welcome from './components/Welcome.jsx'
 import Movie from './components/Movie.jsx'
 import Books from './components/Books.jsx'
 import Music from './components/Music.jsx'
@@ -15,13 +16,12 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      username: null,
       LoginUsername: '',
       LoginPassword: '',
       NewUsername: '',
       NewPassword: '',
       email: '', 
-
+      username: ''
     }
   }
 
@@ -113,21 +113,24 @@ render () {
 
       <div> 
         <Navbar />
+
         <Switch>
+
           <Route exact path='/' 
-          render={ () => 
-          <Login 
-            handleSignUp={this.handleSignUp}
-            handleLogin={this.handleLogin}
-            handleChange={this.handleChange}
-            username = {this.state.username}
-            LoginUsername = {this.state.LoginUsername}
-            LoginPassword = {this.state.LoginPassword}
-            NewUsername = {this.state.NewUsername}
-            NewPassword = {this.state.NewPassword}
-            email = {this.state.email}
-            />
-        } />
+              render={ () => 
+              <Login 
+                handleSignUp={this.handleSignUp}
+                handleLogin={this.handleLogin}
+                handleChange={this.handleChange}
+                username = {this.state.username}
+                LoginUsername = {this.state.LoginUsername}
+                LoginPassword = {this.state.LoginPassword}
+                NewUsername = {this.state.NewUsername}
+                NewPassword = {this.state.NewPassword}
+                email = {this.state.email}
+                /> 
+              }
+          />
           <Route exact path='/movies' render={()=><Movie 
           user={this.state.username}
 
