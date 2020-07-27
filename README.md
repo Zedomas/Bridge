@@ -19,6 +19,7 @@ full-stack single-page application built by:
 * React
 * RESTful API
 * Third-party APIs :[Google APIs](https://www.googleapis.com ) , [Deezerdev (rapid API)](https://deezerdevs-deezer.p.rapidapi.com ) , [OMDB API](http://www.omdbapi.com) ,[Free NBA](https://free-nba.p.rapidapi.com)
+* React bootstrap - npm install react-bootstrap bootstrap
 
 
 ## Features
